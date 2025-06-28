@@ -8,9 +8,8 @@ import TourSchedule from "@/components/tourpage/tour-infor-page/tour-schedule";
 import TourSidebarOffer from "@/components/tourpage/tour-infor-page/tour-side-offer";
 import { notFound } from "next/navigation";
 
-export const generateStaticParams = generateTourStaticParams;
 // 🔧 Tạm tour giả để demo (bạn sẽ xóa và thay bằng dữ liệu thực sau này)
-const mockTour: Tour | null = {
+const mockTour: Tour  = {
     id: '1',
     slug: "tour-3-dao-cano",
     name: "Tour 3 Đảo Cano",
@@ -50,6 +49,14 @@ const mockTour: Tour | null = {
 <p><strong>15h30:</strong> Cano cao tốc của Đan Phát Tour sẽ đưa Quý Khách quay trở lại với đất liền, sau đó, xe và hướng dẫn viên đưa Quý Khách về khách sạn. Qua đó, kết thúc hành trình du lịch hấp dẫn và thú vị của mình tại Nha Trang.</p>
 `,
 }
+
+
+export function generateStaticParams() {
+  return {
+    slug: mockTour.slug,
+  };
+}
+
 export default function TourDetail({ params }: { params: { slug: string } }) {
     const { slug } = params;
 

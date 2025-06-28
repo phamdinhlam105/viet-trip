@@ -86,6 +86,12 @@ Website: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target=
 }
 
 
+export function generateStaticParams() {
+  return {
+    slug: NEWS.slug,
+  };
+}
+
 
 export default function NewsDetailPage({ params }: { params: { slug: string } }) {
     const { slug } = params;
