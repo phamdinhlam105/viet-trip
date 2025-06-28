@@ -3,7 +3,7 @@ import TopBanner from "@/components/site-page/top-banner";
 export default function LienHe() {
 
     return <div>
-        <TopBanner />
+        <TopBanner breadcrumbs={[{ title: 'Liên hệ', slug: '/lien-he' }]} />
         <div className="md:flex justify-center space-x-6 md:p-[10%] px-4 items-stretch">
             <div className="text-center space-y-4 p-5 md:w-1/4">
                 <h2 className="font-bold">Thông tin liên hệ</h2>

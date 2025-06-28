@@ -31,7 +31,7 @@ export default function HotelItem({ id, title, describe, address, price, thumbna
                     {title}
                 </h3>
                 <p className='text-sm'>
-                    {truncateText(describe, 150)}
+                    {truncateText(describe, 90)}
                 </p>
                 <p className='text-sm truncate'>{address}</p>
 

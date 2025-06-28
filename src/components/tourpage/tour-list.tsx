@@ -83,7 +83,7 @@ export default function TourList() {
         }
     };
 
-    return <div className="md:px-[10%] px-2 py-10">
+    return <div className="md:px-[10%] px-2 py-5">
         <div className="flex items-center space-x-6 justify-end mb-4">
             <DropdownMenu>
                 <label>Sắp xếp theo: </label>

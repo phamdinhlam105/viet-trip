@@ -23,9 +23,9 @@ export default function WhyChooseUs() {
 
     return <div className="w-full px-[10%] space-y-2 py-8"
         style={{
-            backgroundImage: 'url("/homepage/why-choose-us.jpg")',
+            backgroundImage: 'url("/homepage/why-choose-us-bg.png")',
             backgroundSize: 'cover',
-            backgroundPosition: 'bottom',
+            backgroundPosition: 'center',
         }}>
         <h2 className="md:text-2xl text-xl font-bold text-white">
             Tại sao nên chọn Viet Trip Tourist

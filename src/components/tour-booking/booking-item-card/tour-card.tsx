@@ -19,7 +19,7 @@ export default function TourCard({ id, onRemove }: { id: number; onRemove: (inde
                 <p>🗓 Lịch trình: <span className="font-semibold">{tour?.schedule}</span></p>
                 <p>🕐 Khởi hành: <span className="font-semibold">{tour?.availableTime}</span></p>
             </CardContent>
-            <CardFooter className="pb-4">
+            <CardFooter className="pb-4 px-2">
                 <p className="text-red-500 font-semibold">{tour?.price} VND</p>
             </CardFooter>
         </Card>

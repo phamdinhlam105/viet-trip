@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ComboItem from "./combo-item";
 
 
-const COMBO_LIST = [
+export const COMBO_LIST = [
     {
         id: 1,
         arrival: 'Nha Trang',
@@ -125,12 +125,7 @@ export default function ComboSection() {
     const comboPairs = groupIntoPairs(COMBO_LIST)
 
     return <div className="space-y-4">
-        <SectionHeader title="Combo Hot" />
-        {/*<div className="flex md:flex-row flex-col items-center space-x-4 justify-center space-y-2">
-            <Button variant="outline" className="rounded-full py-2 md:w-1/5">Tất cả</Button>
-            <Button variant="outline" className="rounded-full py-2 md:w-1/5"> Máy bay + khách sạn</Button>
-            <Button variant="outline" className="rounded-full py-2 md:w-1/5">Xe + Khách sạn</Button>
-        </div>*/}
+        <SectionHeader title="Combo Hot" link="/combo"/>
         <Carousel className="w-full" >
             <CarouselContent className="snap-x">
                 {comboPairs.map(item => <CarouselItem className="md:basis-[25%] space-y-4 py-5 snap-start" key={item[0].id}>
@@ -138,8 +133,8 @@ export default function ComboSection() {
                     <ComboItem {...item[1]} />
                 </CarouselItem >)}
             </CarouselContent>
-            <CarouselPrevious className="h-10 w-10" />
-            <CarouselNext className="h-10 w-10" />
+            <CarouselPrevious className="h-10 w-10 hidden sm:flex" />
+            <CarouselNext className="h-10 w-10 hidden sm:flex" />
         </Carousel>
     </div>
 }

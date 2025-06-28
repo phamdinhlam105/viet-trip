@@ -1,4 +1,4 @@
-import { MapPin, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react";
 import OfferNowButton from "../site-page/offer-now-button";
 import Image from "next/image";
 import { Hotel } from "../models/app-models";
@@ -74,19 +74,19 @@ export default function HotelList({
 
         {paginatedList.map(hotel => (
             <div key={hotel.id} className="md:flex md:items-stretch w-full min-h-50 border-gray-200 shadow-lg rounded-lg">
-                <Link className="md:w-[80%] flex" href={hotel.link}>
-                    <div className="md:w-1/3">
+                <Link className="md:w-[80%] w-full md:flex" href={hotel.link}>
+                    <div className="md:w-1/3 w-full aspect-[2/1]">
                         <div className="relative w-full h-full">
                             <Image
-                                className="rounded-l-lg"
+                                className="md:rounded-l-lg"
                                 src={hotel.thumbnail}
                                 alt="Ảnh khách sạn"
                                 fill
                             />
                         </div>
                     </div>
-                    <div className=" border-gray-50 p-4 space-y-1 w-2/3">
-                        <div className="flex items-center space-x-4">
+                    <div className=" border-gray-50 p-4 space-y-1 md:w-2/3">
+                        <div className="md:flex items-center space-x-4 space-y-2">
                             <h2 className="text-lg font-semibold">{hotel.name} </h2>
                             <span className="flex space-x-2">
                                 {[...Array(hotel.star)].map((_, i) => (
@@ -103,7 +103,7 @@ export default function HotelList({
                         </p>
                     </div>
                 </Link>
-                <div className="py-5 px-2 md:w-[20%] space-y-4 bg-gray-200 rounded-r-lg items-center flex flex-col justify-end">
+                <div className="py-5 px-2 md:w-[20%] space-y-4 bg-gray-200 md:rounded-r-lg items-center flex flex-col justify-end">
                     <div className=" text-md items-center flex flex-col">
                         Giá mỗi đêm
                         <h3 className={`${hotel.discountPrice ? 'line-through' : 'text-red-500 font-bold'}`}>{hotel.price} đ</h3>
@@ -121,7 +121,7 @@ export default function HotelList({
                     onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
-                    Trang trước
+                    <ChevronLeft/>
                 </Button>
 
                 {[...Array(totalPages)].map((_, index) => (
@@ -140,7 +140,7 @@ export default function HotelList({
                     onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >
-                    Trang sau
+                    <ChevronRight/>
                 </Button>
             </div>
         )}

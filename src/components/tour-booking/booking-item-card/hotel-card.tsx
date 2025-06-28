@@ -14,7 +14,7 @@ export default function HotelCard({ id, onRemove }: { id: number; onRemove: (ind
                 <p>📍 Địa chỉ: {hotel?.address}</p>
                 <p>🕐 Giờ mở cửa: {hotel?.openTime}</p>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="pb-4 px-2">
                 <p className="text-red-500 font-semibold">{hotel?.price} VND</p>
             </CardFooter>
         </Card>

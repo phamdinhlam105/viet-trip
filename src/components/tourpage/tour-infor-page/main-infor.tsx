@@ -18,8 +18,8 @@ export default function TourMainInformation({ mainFeature, location, food, suita
             <p>{mainFeature}</p>
         </div>
         <div className="py-5 px-2 space-y-2">
-            <h2 className="text-center font-bold text-2xl">THÔNG TIN THÊM VỀ CHUYẾN ĐI</h2>
-            <div className="grid grid-cols-3 gap-4">
+            <h2 className="text-center font-bold  md:text-2xl text-lg">THÔNG TIN THÊM VỀ CHUYẾN ĐI</h2>
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
                 <div>
                     <h3 className="font-semibold py-2">
                         Điểm tham quan:

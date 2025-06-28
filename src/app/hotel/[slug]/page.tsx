@@ -4,6 +4,7 @@ import OthersHotel from "@/components/hotel-page/hotel-detail/other-hotel";
 import type { HotelDetail } from "@/components/models/app-models";
 import NoticeInformation from "@/components/tourpage/tour-infor-page/notice-infor";
 import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-gallery";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const HOTEL: HotelDetail = {
@@ -39,8 +40,13 @@ export default async function HotelDetail({ params }: { params: Params }) {
     if (!hotel) return notFound();
 
     return <div>
-        <div className="md:px-[10%] px-2 py-10 md:flex space-x-4">
+        <div className="md:px-[10%] px-2 py-5 md:flex space-x-4">
             <div className="md:w-3/4 w-full">
+                <div className="flex space-x-2 pb-4">
+                    <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/">Trang chủ </Link><span>/</span>
+                    <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/hotel">Khách sạn</Link><span>/</span>
+                    <p>{HOTEL.name}</p>
+                </div>
                 <h1 className="text-3xl font-bold mb-4">{hotel.name}</h1>
                 <TourDetailGallery images={hotel.images} />
                 <HotelMainInformation {...hotel.additionalDetail} />

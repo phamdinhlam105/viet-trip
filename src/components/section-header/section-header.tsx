@@ -1,5 +1,6 @@
+import Link from "next/link";
 
-export default function SectionHeader({ title, describe }: { title: string, describe?: string }) {
+export default function SectionHeader({ title, describe, link }: { title: string, describe?: string, link?: string }) {
 
     return <div>
         <div className="flex justify-between items-stretch">
@@ -10,14 +11,16 @@ export default function SectionHeader({ title, describe }: { title: string, desc
                 <div className=" my-3 w-[250px] bg-gradient-to-r from-[#1161A2] to-[#77C2B8] h-[4px]">
                 </div>
             </div>
-            <div className="hidden sm:block">
-                <h2 className="text-md">
-                    Xem tất cả
-                </h2>
+            {link && <div className="hidden sm:block">
+                <Link href={link}>
+                    <h2 className="text-md hover:text-blue-400 hover:underline">
+                        Xem tất cả
+                    </h2>
+                </Link>
                 <div className=" my-3 w-full bg-gradient-to-r from-[#1161A2] to-[#77C2B8] h-[4px]">
                 </div>
             </div>
-
+            }
         </div>
         {describe ? <p className="md:w-2/3 text-wrap md:text-md text-sm">
             {describe}

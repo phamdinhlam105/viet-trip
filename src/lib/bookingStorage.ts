@@ -16,6 +16,11 @@ export const removeBookingItem = (id: number) => {
   return updated;
 };
 
+export const removeAllBookingItems = () => {
+  localStorage.removeItem("booking_items");
+};
+
+
 export const addBookingItem = (newItem: { id: number; type: string }) => {
   if (typeof window === "undefined") return;
   const existing = JSON.parse(localStorage.getItem("booking_items") || "[]");

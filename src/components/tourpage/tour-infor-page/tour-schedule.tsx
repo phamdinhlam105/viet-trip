@@ -15,7 +15,7 @@ export default function TourSchedule({ schedule, scheduleDetail }: {
         open={isOpen}
         onOpenChange={setIsOpen}
         className="w-full flex-col gap-2 py-4">
-        <h2 className="text-center text-2xl font-bold my-4">
+        <h2 className="text-center md:text-2xl text-lg font-bold my-4">
             LỊCH TRÌNH
         </h2>
         <CollapsibleTrigger asChild>

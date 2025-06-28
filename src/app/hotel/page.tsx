@@ -97,8 +97,8 @@ export default function HotelPage() {
     }, []);
 
     return <div>
-        <TopBannerNoPicture />
-        <div className="md:p-20 md:flex md:space-x-6 relative">
+        <TopBannerNoPicture breadcrumbs={[{title:'Khách sạn',slug:'hotel'}]} />
+        <div className="md:px-[10%] py-5 md:flex md:space-x-6 relative">
             <div className="block md:hidden w-full mb-4 sticky top-0 bg-white shadow-lg z-10 flex flex-col items-center">
                 <Collapsible open={isOpen} onOpenChange={setIsOpen}>
                     <CollapsibleTrigger asChild>

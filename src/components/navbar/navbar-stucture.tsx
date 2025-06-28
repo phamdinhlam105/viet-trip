@@ -25,4 +25,9 @@ export const NavBarStructure = [
         name: "TIN TỨC",
         link:"/tin-tuc"
     },
+     {
+        id:"6",
+        name: "COMBO ",
+        link:"/combo"
+    },
 ]

@@ -1,56 +1,61 @@
-'use client';
 
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-export default function TopBanner() {
-    const pathname = usePathname();
-
-    // Tách các phần trong URL, ví dụ: /tours/3/island → ['tours', '3', 'island']
-    const segments = pathname.split('/').filter(Boolean);
-
-    // Tạo breadcrumb từ các phần
-    const breadcrumbs = segments.map((segment, index) => {
-        const href = '/' + segments.slice(0, index + 1).join('/');
-        return { label: decodeURIComponent(segment), href };
-    });
-
-    // Tiêu đề lấy từ phần cuối URL, nếu không có thì là 'Trang chủ'
+export default function TopBanner({
+    breadcrumbs,
+}: {
+    breadcrumbs: { slug: string; title: string }[];
+}) {
+    // Tiêu đề từ phần cuối breadcrumb
     const title = breadcrumbs.length
-        ? breadcrumbs[breadcrumbs.length - 1].label
+        ? breadcrumbs[breadcrumbs.length - 1].title
         : 'Trang chủ';
 
     return (
         <div
+            className="w-full min-h-[300px] flex items-center justify-center bg-cover bg-bottom bg-no-repeat"
             style={{
                 backgroundImage: 'url("/homepage/banner-background.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'bottom',
             }}
-            className="w-full min-h-50 flex items-center justify-center"
         >
-            <div className="text-white space-y-2 px-4 py-6 max-w-screen-xl">
-                <h1 className="text-3xl font-bold capitalize">
-                    {title.replace(/-/g, ' ')}
+            <div className="text-white text-center px-4 py-6 max-w-screen-xl space-y-3">
+                {/* Tiêu đề */}
+                <h1 className="text-3xl font-bold uppercase">
+                    {title}
                 </h1>
-                <nav className="text-sm text-white/80">
-                    <ol className="flex flex-wrap items-center space-x-2">
+
+                {/* Breadcrumb */}
+                <nav className="text-sm text-white/80 flex justify-center">
+                    <ol className="flex flex-wrap justify-center items-center space-x-2">
                         <li>
                             <Link href="/" className="hover:underline">
-                                Home
+                                Trang chủ
                             </Link>
                         </li>
-                        {breadcrumbs.map((crumb, index) => (
-                            <li key={index} className="flex items-center space-x-2">
-                                <span>/</span>
-                                <Link href={crumb.href} className="hover:underline capitalize">
-                                    {crumb.label.replace(/-/g, ' ')}
-                                </Link>
-                            </li>
-                        ))}
+
+                        {breadcrumbs.map((crumb, index) => {
+                            // Tạo href bằng cách nối slug từ đầu tới vị trí hiện tại
+                            const href =
+                                '/' +
+                                breadcrumbs
+                                    .slice(0, index + 1)
+                                    .map((c) => c.slug)
+                                    .join('/');
+
+                            return (
+                                <li key={index} className="flex items-center space-x-2">
+                                    <span>/</span>
+                                    <Link
+                                        href={href}
+                                        className="hover:underline capitalize"
+                                    >
+                                        {crumb.title}
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ol>
                 </nav>
-
             </div>
         </div>
     );

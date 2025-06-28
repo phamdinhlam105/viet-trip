@@ -9,7 +9,7 @@ export default function NavigationResponsive() {
 
   return <Sheet>
     <SheetTrigger asChild><AlignJustify /></SheetTrigger>
-    <SheetContent className="w-full p-2 space-y-5">
+    <SheetContent className="p-2 space-y-5">
       <SheetTitle className="sr-only">
         </SheetTitle>
 
@@ -17,7 +17,7 @@ export default function NavigationResponsive() {
         </SheetClose>
 
         <div className="flex justify-center">
-          <Link href="/">
+          <Link href="/" className=" self-center relative w-2/3 md:w-1/10 aspect-[2/1]">
             <Logo />
           </Link>
         </div>

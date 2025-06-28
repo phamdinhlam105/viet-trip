@@ -37,7 +37,7 @@ export default function TopCarousel() {
     return <Carousel className="w-full py-5" >
         <CarouselContent className="w-full gap-4">
             {images.map(item =>
-                <CarouselItem className="basis-full md:basis-[32%] py-5" key={item.id}>
+                <CarouselItem className="basis-full basis-[32%] py-5" key={item.id}>
                     <div className="rounded-lg shadow-lg">
                         <div className="relative w-full aspect-[3/2]">
                             <Image

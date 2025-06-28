@@ -89,7 +89,7 @@ const NEWS = [
 export default function NewsPage() {
 
     return <div>
-        <TopBanner />
+        <TopBanner breadcrumbs={[{ title: 'Tin tức', slug: '/tin-tuc' }]} />
         <NewsList newsList={NEWS} />
     </div>
 }

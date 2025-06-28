@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "../components/navbar/navbar";
 import AppFooter from "@/components/footer/app-footer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,6 +27,7 @@ export default function RootLayout({
         className={`${inter.variable}  antialiased`}
       >
         <NavigationBar />
+        <Toaster richColors position="top-center"/>
         {children}
         <AppFooter/>
       </body>

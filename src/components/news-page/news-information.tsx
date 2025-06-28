@@ -8,8 +8,12 @@ export default function NewsInformtion({ title, description, content, createAt }
 }) {
 
     return <div className="space-y-3 md:w-3/4">
-        <p className="text-sm font-semibold">
-            <Link href='/tin-tuc' className="hover:text-blue-600 hover:underline">Tin tức</Link> / <span>{title}</span>
+        <p className="text-sm font-semibold space-x-1">
+            <Link className="hover:text-blue-600 hover:underline" href='/'>Trang chủ</Link>
+            <span>/</span>
+            <Link href='/tin-tuc' className="hover:text-blue-600 hover:underline">Tin tức</Link>
+            <span>/</span>
+            <span>{title}</span>
         </p>
         <h1 className="text-2xl font-bold">
             {title}

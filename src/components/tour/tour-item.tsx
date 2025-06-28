@@ -6,6 +6,7 @@ import { Sheet, SheetTrigger } from '../ui/sheet';
 import TourBookingSheet from '../tour-booking/tour-booking-sheet';
 import { addBookingItem } from '@/lib/bookingStorage';
 import { useState } from 'react';
+import { truncateText } from '@/lib/truncate-text';
 export default function TourItem({ id, title, describe, departure, schedule, price, thumbnail }: {
     id: number,
     title: string,
@@ -27,15 +28,15 @@ export default function TourItem({ id, title, describe, departure, schedule, pri
                 <h3 className='text-md font-bold'>
                     {title}
                 </h3>
-                <p className='text-sm'>
-                    {describe}
+                <p className='block text-sm'>
+                    {truncateText(describe, 90)}
                 </p>
                 <p>Khởi hành: <span className='font-semibold'>{departure}</span></p>
                 <p>Lịch mở tour: {schedule}</p>
             </div>
         </Link>
-        <div className='flex justify-between my-2 px-4'>
-            <p className='text-[#FF0000] font-bold text-lg'>{price}đ</p>
+        <div className='flex justify-between items-center my-2 px-4'>
+            <p className='text-[#FF0000] font-bold md:text-lg'>{price}đ</p>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                     <Button className='w-1/2 text-md 

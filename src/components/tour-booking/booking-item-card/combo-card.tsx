@@ -15,8 +15,8 @@ export default function ComboCard({ id, onRemove }: { id: number; onRemove: (ind
         <p>🎟 Áp dụng từ: {combo?.applyDate}</p>
         <p>🌐 Gồm tour ID: {combo?.idTour}, khách sạn ID: {combo?.idHotel}</p>
       </CardContent>
-      <CardFooter>
-        <p className="text-red-500 font-semibold">Giá combo: {combo?.price} VND</p>
+      <CardFooter className="pb-4 px-2">
+        <p className="text-red-500 font-semibold px-0">Giá combo: {combo?.price} VND</p>
       </CardFooter>
     </Card>
   );
