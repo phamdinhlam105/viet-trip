@@ -8,7 +8,7 @@ import TourSidebarOffer from "@/components/tourpage/tour-infor-page/tour-side-of
 import { notFound } from "next/navigation";
 
 // 🔧 Tạm tour giả để demo (bạn sẽ xóa và thay bằng dữ liệu thực sau này)
-const mockTour: Tour  = {
+const mockTour: Tour = {
     id: '1',
     slug: "tour-3-dao-cano",
     name: "Tour 3 Đảo Cano",
@@ -49,18 +49,18 @@ const mockTour: Tour  = {
 `,
 }
 
-
-export function generateStaticParams() {
-  return {
-    slug: mockTour.slug,
-  };
+export const generateStaticParams = () => {
+    return [{
+        slug: mockTour.slug,
+    }];
 }
+type Params = Promise<{ slug: string }>;
 
-export default function TourDetail({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+export default async function TourDetail({ params }: { params: Params }) {
+    const { slug } = await params;
 
     // 🔒 Dữ liệu thực tế sẽ được thay vào đây
-    const tour = mockTour?.slug === slug ? mockTour : null;
+    const tour = mockTour.slug === slug ? mockTour : null;
 
     if (!tour) {
         return notFound();

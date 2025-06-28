@@ -85,16 +85,14 @@ Website: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target=
 `
 }
 
-
-export function generateStaticParams() {
-  return {
-    slug: NEWS.slug,
-  };
+export const generateStaticParams = () => {
+    return [{
+        slug: NEWS.slug,
+    }];
 }
-
-
-export default function NewsDetailPage({ params }: { params: { slug: string } }) {
-    const { slug } = params;
+type Params = Promise<{ slug: string }>;
+export default async function NewsDetailPage({ params }: { params: Params }) {
+    const { slug } = await params;
 
     // 🔒 Dữ liệu thực tế sẽ được thay vào đây
     const hotel = NEWS?.slug === slug ? NEWS : null;

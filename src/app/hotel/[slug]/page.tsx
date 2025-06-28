@@ -24,21 +24,17 @@ const HOTEL: HotelDetail = {
     },
 }
 
-export function generateStaticParams() {
-  return {
-    slug: HOTEL.slug,
-  };
+export const generateStaticParams = () => {
+    return [{
+        slug: HOTEL.slug,
+    }];
 }
-type PageProps = {
-    params: {
-        slug: string;
-    };
-};
+type Params = Promise<{ slug: string }>;
 
-export default function HotelDetail({ params }: PageProps) {
-    const { slug } = params;
+export default async function HotelDetail({ params }: { params: Params }) {
+    const { slug } = await params;
 
-    const hotel = HOTEL?.slug === slug ? HOTEL : null;
+    const hotel = HOTEL.slug === slug ? HOTEL : null;
 
     if (!hotel) return notFound();
 
