@@ -23,9 +23,14 @@ const HOTEL: HotelDetail | null = {
         promotion: 'Quầy bar mini tại phòng'
     },
 }
+type PageProps = {
+    params: {
+        slug: string;
+    };
+};
 
-export default function HotelDetail({ params }: { params: { slug: string } }) {
-const { slug } = params;
+export default function HotelDetail({ params }: PageProps) {
+    const { slug } = params;
 
     // 🔒 Dữ liệu thực tế sẽ được thay vào đây
     const hotel = HOTEL?.slug === slug ? HOTEL : null;
@@ -33,7 +38,7 @@ const { slug } = params;
     if (!hotel) {
         return notFound();
     }
-    return <div className="">
+    return <div>
         <div className="md:px-[10%] px-2 py-10 md:flex space-x-4">
             <div className="md:w-3/4 w-full">
                 <h1 className="text-3xl font-bold mb-4">{hotel.name}</h1>
@@ -45,6 +50,6 @@ const { slug } = params;
                 <HotelSidebarOffer {...hotel} />
             </div>
         </div>
-        <OthersHotel/>
+        <OthersHotel />
     </div>
 }

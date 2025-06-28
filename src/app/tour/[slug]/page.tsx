@@ -50,7 +50,7 @@ const mockTour: Tour | null = {
 <p><strong>15h30:</strong> Cano cao tốc của Đan Phát Tour sẽ đưa Quý Khách quay trở lại với đất liền, sau đó, xe và hướng dẫn viên đưa Quý Khách về khách sạn. Qua đó, kết thúc hành trình du lịch hấp dẫn và thú vị của mình tại Nha Trang.</p>
 `,
 }
-export default async function TourDetail({ params }: { params: { slug: string } }) {
+export default function TourDetail({ params }: { params: { slug: string } }) {
     const { slug } = params;
 
     // 🔒 Dữ liệu thực tế sẽ được thay vào đây
