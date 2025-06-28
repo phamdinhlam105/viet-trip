@@ -25,9 +25,7 @@ export default function NavigationBar() {
             </div>
         </div>
         <div className="px-[10%] w-full items-center flex justify-between py-2">
-            <Link href="/" className="relative w-1/10 aspect-[2/1]">
-                <Logo />
-            </Link>
+            <Logo />
             <div className="w-2/3">
                 <ul className="flex justify-between items-center justify-end space-x-10">
                     {NavBarStructure.map(item =>
