@@ -9,7 +9,7 @@ export default function AboutUs() {
             <p className="text-md">
                 Công ty TNHH Lữ Hành Quốc Tế Việt Trip là đơn vị chuyên tổ chức các tour du lịch chất lượng tại thành phố biển Nha Trang và các điểm đến hấp dẫn khắp Việt Nam. Với trụ sở đặt tại 135/8 Nguyễn Thái Học, phường Vạn Thạnh, thành phố Nha Trang, tỉnh Khánh Hòa, công ty đã và đang mang đến những trải nghiệm du lịch đáng nhớ cho khách hàng trong và ngoài nước.
                 <span className="block mb-2" />
-                Với phương châm "Khám phá - Trải nghiệm - Tận hưởng" và slogan "Your Journey, Our Passion!", Việt Trip cam kết mang đến dịch vụ chuyên nghiệp, tận tâm, giúp du khách có những chuyến đi trọn vẹn.
+                Với phương châm &quot;Khám phá - Trải nghiệm - Tận hưởng&quot; và slogan &quot;Your Journey, Our Passion!&quot;, Việt Trip cam kết mang đến dịch vụ chuyên nghiệp, tận tâm, giúp du khách có những chuyến đi trọn vẹn.
                 <span className="block mb-2" />
                 Quý khách có thể dễ dàng liên hệ với công ty qua thông tin sau:
                 <span className="block mb-2" />

@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Collapsible } from "@radix-ui/react-collapsible"
-import { ChevronDown, ChevronsUpDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
 export default function TourSchedule({ schedule, scheduleDetail }: {

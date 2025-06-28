@@ -2,8 +2,6 @@ import NewsInformtion from "@/components/news-page/news-information";
 import NewsSideBar from "@/components/news-page/news-sidebar";
 import { notFound } from "next/navigation";
 
-
-
 const NEWS = {
     id: 1,
     slug: '11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8',

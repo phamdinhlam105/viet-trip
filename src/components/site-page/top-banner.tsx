@@ -41,7 +41,7 @@ export default function TopBanner() {
                             </Link>
                         </li>
                         {breadcrumbs.map((crumb, index) => (
-                            <li key={crumb.href} className="flex items-center space-x-2">
+                            <li key={index} className="flex items-center space-x-2">
                                 <span>/</span>
                                 <Link href={crumb.href} className="hover:underline capitalize">
                                     {crumb.label.replace(/-/g, ' ')}

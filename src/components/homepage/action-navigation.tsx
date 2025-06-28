@@ -20,7 +20,7 @@ export default function ActionNavigation() {
                 <TabsTrigger value="combo" className="hover:text-blue-700 cursor-pointer w-1/5 p-4 data-[state=active]:bg-gray-200"><Sailboat/> <Plus/> <Hotel/> Combo</TabsTrigger>
                 <TabsTrigger value="others" className="hover:text-blue-700 cursor-pointer w-1/5 p-4 data-[state=active]:bg-gray-200"><Component/>Dịch vụ khác</TabsTrigger>
             </TabsList>
-            <TabsContent value="visa" className="min-h-10">It's John Cenaaaaaaaaaaaaa</TabsContent>
+            <TabsContent value="visa" className="min-h-10"><TourTab /></TabsContent>
             <TabsContent value="tour" className="min-h-10"><TourTab /></TabsContent>
             <TabsContent value="hotel" className="min-h-10 "><TourTab /></TabsContent>
             <TabsContent value="combo" className="min-h-10"><TourTab /></TabsContent>

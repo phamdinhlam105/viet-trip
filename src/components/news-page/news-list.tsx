@@ -7,13 +7,15 @@ import { Button } from "../ui/button";
 
 const ITEMS_PER_PAGE = 9;
 
-export default function NewsList({ newsList }: { newsList: any[] }) {
+export default function NewsList({ newsList }: { newsList: unknown }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const [currentPage, setCurrentPage] = useState(1);
 
+    const newsListData = newsList as any[];
+
     const filteredNews = useMemo(() => {
-        return newsList
+        return newsListData
             .filter(news =>
                 news.title.toLowerCase().includes(searchTerm.toLowerCase())
             )

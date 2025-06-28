@@ -7,7 +7,7 @@ import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Menu } from "lucide-react"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
 
 const LIST_HOTELS: Hotel[] = [
@@ -92,9 +92,9 @@ export default function HotelPage() {
         return matchType && matchStar && matchName;
     });
 
-    const nameFilter = (name?: string) => {
-        setSearchName(name);
-    };
+    const nameFilter = useCallback((name?: string) => {
+        setSearchName(name ?? '');
+    }, []);
 
     return <div>
         <TopBannerNoPicture />

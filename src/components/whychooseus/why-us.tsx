@@ -1,6 +1,6 @@
 
 import StaticItem from "./static-item"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem} from "../ui/carousel";
 
 const WHY_CHOOSE_US = [
     {

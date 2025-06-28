@@ -18,7 +18,7 @@ export default function HotelSideBar({ toggleType, toggleStar, selectedTypes, se
 
     useEffect(() => {
         nameFilter(search.trim());
-    }, [search]);
+    }, [search, nameFilter]);
 
     return (<div className="py-4 space-y-4">
         <h2 className='text-xl font-bold bg-gradient-to-r from-[#1161A2] to-[#77C2B8] bg-clip-text text-transparent'>BỘ LỌC TÌM KIẾM:</h2>

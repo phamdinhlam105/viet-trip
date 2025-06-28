@@ -1,6 +1,6 @@
 "use client"
 
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Calendar } from "@/components/ui/calendar"
 import { useEffect, useState } from "react"
 import { Button } from "../ui/button";

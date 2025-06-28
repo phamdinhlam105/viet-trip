@@ -1,10 +1,8 @@
-import { AlignJustify, X } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 import { NavBarStructure } from "./navbar-stucture";
-import AppSideBar from "./sidebar";
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import Link from "next/link";
 import Logo from "./logo";
-import { Button } from "../ui/button";
 
 export default function NavigationResponsive() {
 

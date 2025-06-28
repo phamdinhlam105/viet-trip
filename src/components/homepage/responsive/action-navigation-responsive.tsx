@@ -11,7 +11,7 @@ export default function ActionNavigationResponsive() {
   const [openTab, setOpenTab] = useState<string | null>(null)
 
   const tabData = [
-    { key: "visa", label: "Visa", content: <div>It's John Cenaaaaaaaaaaaaa</div> },
+    { key: "visa", label: "Visa", content: <TourTab /> },
     { key: "tour", label: "Tour trọn gói", content: <TourTab /> },
     { key: "hotel", label: "Khách sạn", content: <TourTab /> },
     { key: "combo", label: "Combo", content: <TourTab /> },

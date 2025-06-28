@@ -1,4 +1,5 @@
+import Image from "next/image";
 
-export default function Logo(){
-    return <img src="/homepage/MainLogo.svg" alt="Logo chính"/>
+export default function Logo() {
+    return <Image src="/homepage/MainLogo.svg" alt="Logo chính" fill/>
 }

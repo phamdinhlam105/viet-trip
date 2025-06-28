@@ -1,4 +1,4 @@
-import {  ClipboardCheckIcon, MapPin, Phone, Search } from "lucide-react";
+import { ClipboardCheckIcon, MapPin, Phone, Search } from "lucide-react";
 import Logo from "./logo";
 import { NavBarStructure } from "./navbar-stucture";
 import Link from "next/link";
@@ -22,11 +22,9 @@ export default function NavigationBar() {
             </div>
         </div>
         <div className="md:px-10 px-2 w-full items-center flex justify-between space-x-2 py-2">
-            <div>
-                <Link href="/">
-                    <Logo />
-                </Link>
-            </div>
+            <Link href="/" className="relative w-1/10 aspect-[2/1]">
+                <Logo />
+            </Link>
             <div className="md:hidden block flex items-center">
                 <Sheet>
                     <SheetTrigger asChild>
@@ -51,7 +49,7 @@ export default function NavigationBar() {
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="ghost">
-                              <ClipboardCheckIcon />
+                            <ClipboardCheckIcon />
                         </Button>
                     </SheetTrigger>
                     <TourBookingSheet openState={false} />

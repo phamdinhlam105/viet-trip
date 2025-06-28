@@ -110,7 +110,7 @@ export default function TourList() {
             </DropdownMenu>
         </div>
         <div className="md:grid md:grid-cols-3 gap-4">
-            {sortedTourList.map(item => <TourItem key={item.id} {...item} />)}
+            {paginatedTours.map(item => <TourItem key={item.id} {...item} />)}
         </div>
         <div className="flex justify-center items-center mt-6 space-x-2">
             <Button
