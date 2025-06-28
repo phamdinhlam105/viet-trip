@@ -21,11 +21,20 @@ export default function HotelList({
     const itemsPerPage = 4;
 
     const sortedList = [...listdata].sort((a, b) => {
-        if (sortBy === 'price') {
-            const priceA = parseInt(a.discountPrice || a.price);
-            const priceB = parseInt(b.discountPrice || b.price);
+        const normalizePrice = (value: string | undefined) =>
+            parseInt((value || "0").replace(/[.,]/g, ""));
+
+        const priceA = normalizePrice(a.discountPrice ?? a.price);
+        const priceB = normalizePrice(b.discountPrice ?? b.price);
+
+
+        if (sortBy === 'price-asc') {
             return priceA - priceB;
-        } else if (sortBy === 'star') {
+        } else if (sortBy === 'price-desc') {
+            return priceB - priceA;
+        } else if (sortBy === 'star-asc') {
+            return a.star - b.star;
+        } else if (sortBy === 'star-desc') {
             return b.star - a.star;
         }
         return 0;
@@ -51,22 +60,28 @@ export default function HotelList({
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="w-32 text-sm ">
-                        {sortBy === 'price'
-                            ? 'Giá'
-                            : sortBy === 'star'
-                                ? 'Số sao'
-                                : 'Mặc định'}
+                        {sortBy === 'price-asc' && 'Giá tăng dần'}
+                        {sortBy === 'price-desc' && 'Giá giảm dần'}
+                        {sortBy === 'star-asc' && 'Sao tăng dần'}
+                        {sortBy === 'star-desc' && 'Sao giảm dần'}
+                        {sortBy === '' && 'Mặc định'}
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem onClick={() => onSortChange("")}>
                         Mặc định
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => onSortChange("price")}>
-                        Giá
+                    <DropdownMenuItem onClick={() => onSortChange("price-asc")}>
+                        Giá tăng dần
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => onSortChange("star")}>
-                        Số sao
+                    <DropdownMenuItem onClick={() => onSortChange("price-desc")}>
+                        Giá giảm dần
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => onSortChange("star-asc")}>
+                        Sao tăng dần
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => onSortChange("star-desc")}>
+                        Sao giảm dần
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
@@ -110,7 +125,7 @@ export default function HotelList({
                         {hotel.discountPrice ? <h3 className="text-red-500 font-bold">{hotel.discountPrice} đ</h3> : undefined}
                         <p className="italic text-xs tracking-tight my-1">Giá chưa bao gồm thuế và phí</p>
                     </div>
-                    <OfferNowButton id={parseInt(hotel.id)} type="hotel"/>
+                    <OfferNowButton id={parseInt(hotel.id)} type="hotel" />
                 </div>
             </div>
         ))}
@@ -121,7 +136,7 @@ export default function HotelList({
                     onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
-                    <ChevronLeft/>
+                    <ChevronLeft />
                 </Button>
 
                 {[...Array(totalPages)].map((_, index) => (
@@ -140,7 +155,7 @@ export default function HotelList({
                     onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >
-                    <ChevronRight/>
+                    <ChevronRight />
                 </Button>
             </div>
         )}

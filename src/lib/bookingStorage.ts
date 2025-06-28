@@ -8,10 +8,10 @@ export const getBookingItems = () => {
   return data ? JSON.parse(data) : [];
 };
 
-export const removeBookingItem = (id: number) => {
+export const removeBookingItem = (id: number, type: string) => {
 
   const current = getBookingItems();
-  const updated = current.filter((item: { id: number; }) => !(item.id === id));
+  const updated = current.filter((item: { id: number, type: string }) => !(item.id === id && item.type === type));
   localStorage.setItem("booking_items", JSON.stringify(updated));
   return updated;
 };

@@ -2,7 +2,7 @@ import TopBanner from "@/components/site-page/top-banner";
 
 export default function AboutUs() {
 
-    return <div>
+    return <div className="md:pt-28 pt-20">
         <TopBanner breadcrumbs={[{ title: 'Giới thiệu', slug: '/about-us' }]} />
         <div className="md:px-[10%] px-4 py-5 space-y-4">
             <h2 className="font-bold text-2xl text-center">CÔNG TY TNHH LỮ HÀNH QUỐC TẾ VIỆT TRIP</h2>

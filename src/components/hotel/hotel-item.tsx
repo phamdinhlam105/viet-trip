@@ -17,7 +17,7 @@ export default function HotelItem({ id, title, describe, address, price, thumbna
 }) {
     const [open, setOpen] = useState(false);
     return <div className="w-full flex flex-col justify-between bg-white rounded-lg space-y-4 pb-4 border border-gray-200 shadow-lg">
-        <Link href={'/tour/du-lich-nha-trang'}>
+        <Link href={'/hotel/queen-ann-nha-trang-hotel'}>
             <div className='relative w-full aspect-[3/2]'>
                 <Image
                     className='rounded rounded-lg object-cover'

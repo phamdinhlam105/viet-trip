@@ -48,28 +48,32 @@ export const hotels = [
     name: "Khách sạn Mường Thanh",
     address: " 60 Trần Phú, Lộc Thọ, Nha Trang, Khánh Hòa",
     openTime: "24/7",
-    price: "1.400.000"
+    price: "1.400.000",
+    thumbnail: '/hotel/muong-thanh-1.jpg'
   },
   {
     id: 2,
     name: "Khách sạn Queen Ann",
     address: "100 Trần Phú, Lộc Thọ, Nha Trang, Khánh Hòa",
     openTime: "24/7",
-    price: "999.000"
+    price: "999.000",
+    thumbnail: '/hotel/queen-ann.jpg'
   },
   {
     id: 3,
     name: "Khách sạn Mường Thanh",
     address: " 60 Trần Phú, Lộc Thọ, Nha Trang, Khánh Hòa",
     openTime: "24/7",
-    price: "1.400.000"
+    price: "1.400.000",
+    thumbnail: '/hotel/muong-thanh-1.jpg'
   },
   {
     id: 4,
     name: "Khách sạn Queen Ann",
     address: "100 Trần Phú, Lộc Thọ, Nha Trang, Khánh Hòa",
     openTime: "24/7",
-    price: "999.000"
+    price: "999.000",
+    thumbnail: '/hotel/queen-ann.jpg'
   },
 ];
 

@@ -88,7 +88,7 @@ const NEWS = [
 
 export default function NewsPage() {
 
-    return <div>
+    return <div className="md:pt-28 pt-20">
         <TopBanner breadcrumbs={[{ title: 'Tin tức', slug: '/tin-tuc' }]} />
         <NewsList newsList={NEWS} />
     </div>

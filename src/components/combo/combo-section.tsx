@@ -11,7 +11,7 @@ export const COMBO_LIST = [
         schedule: '20/07/2025',
         accommodation: 'Khách sạn Mường Thanh',
         transportation: 'Máy bay',
-        price: '5.900.000'
+        price: '1.500.000'
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ export const COMBO_LIST = [
         schedule: '20/07/2025',
         accommodation: 'Khách sạn Mường Thanh',
         transportation: 'Máy bay',
-        price: '5.900.000'
+        price: '3.500.000'
     },
     {
         id: 3,

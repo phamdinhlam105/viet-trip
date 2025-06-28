@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 import { getTourById } from "@/lib/bookingStorage";
 import Image from "next/image";
 
-export default function TourCard({ id, onRemove }: { id: number; onRemove: (index: number) => void }) {
+export default function TourCard({ id, onRemove }: { id: number; onRemove: (index: number,type:string) => void }) {
     const tour = getTourById(id)
     return (
         <Card className="w-full p-0">
             <CardHeader className="flex justify-between items-center p-2">
-                <CardTitle>{tour?.name}</CardTitle>
-                <Button variant="ghost" type="button" size="sm" className="w-1/5" onClick={() => onRemove(id)}>❌</Button>
+                <CardTitle className="px-2">{tour?.name}</CardTitle>
+                <Button variant="ghost" type="button" size="sm" className="w-1/5" onClick={() => onRemove(id,'tour')}>❌</Button>
             </CardHeader>
             <CardContent className="text-sm text-gray-600 space-y-3 px-2">
                 <div className="w-full aspect-[2/1] relative">

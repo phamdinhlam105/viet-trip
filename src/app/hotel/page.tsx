@@ -96,10 +96,10 @@ export default function HotelPage() {
         setSearchName(name ?? '');
     }, []);
 
-    return <div>
+    return <div className="md:pt-28 pt-20">
         <TopBannerNoPicture breadcrumbs={[{title:'Khách sạn',slug:'hotel'}]} />
         <div className="md:px-[10%] py-5 md:flex md:space-x-6 relative">
-            <div className="block md:hidden w-full mb-4 sticky top-0 bg-white shadow-lg z-10 flex flex-col items-center">
+            <div className="block md:hidden w-full mb-4 sticky top-20 bg-white shadow-lg z-10 flex flex-col items-center">
                 <Collapsible open={isOpen} onOpenChange={setIsOpen}>
                     <CollapsibleTrigger asChild>
                         <Button variant="outline" className="w-full flex justify-center items-center border-none">

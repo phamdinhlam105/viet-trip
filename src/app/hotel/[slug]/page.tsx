@@ -39,7 +39,7 @@ export default async function HotelDetail({ params }: { params: Params }) {
 
     if (!hotel) return notFound();
 
-    return <div>
+    return <div className="md:pt-28 pt-20">
         <div className="md:px-[10%] px-2 py-5 md:flex space-x-4">
             <div className="md:w-3/4 w-full">
                 <div className="flex space-x-2 pb-4">
@@ -49,10 +49,13 @@ export default async function HotelDetail({ params }: { params: Params }) {
                 </div>
                 <h1 className="text-3xl font-bold mb-4">{hotel.name}</h1>
                 <TourDetailGallery images={hotel.images} />
+                <div className="md:hidden py-2">
+                    <HotelSidebarOffer {...hotel} />
+                </div>
                 <HotelMainInformation {...hotel.additionalDetail} />
                 <NoticeInformation />
             </div>
-            <div className="md:w-1/4 md:relative">
+            <div className="md:w-1/4 md:relative sm:block hidden">
                 <HotelSidebarOffer {...hotel} />
             </div>
         </div>

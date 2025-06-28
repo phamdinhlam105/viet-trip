@@ -1,22 +1,50 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { getComboById } from "@/lib/bookingStorage";
-export default function ComboCard({ id, onRemove }: { id: number; onRemove: (index: number) => void }) {
+import { getComboById, getHotelById, getTourById } from "@/lib/bookingStorage";
+export default function ComboCard({ id, onRemove }: { id: number; onRemove: (index: number, type: string) => void }) {
 
   const combo = getComboById(id);
 
+  if (!combo) {
+    return (
+      <Card>
+        <CardHeader className="flex justify-between items-start pb-2">
+          <CardTitle>Combo không tồn tại</CardTitle>
+          <Button variant="ghost" type="button" size="sm" onClick={() => onRemove(id, 'combo')}>
+            ❌
+          </Button>
+        </CardHeader>
+        <CardContent className="text-sm text-gray-600">
+          <p>Dữ liệu combo không khả dụng.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  const tour = getTourById(parseInt(combo.idTour));
+  const hotel = getHotelById(parseInt(combo.idHotel));
   return (
     <Card>
       <CardHeader className="flex justify-between ids-start pb-2">
         <CardTitle>{combo?.name}</CardTitle>
-        <Button variant="ghost" type="button" size="sm" onClick={() => onRemove(id)}>❌</Button>
+        <Button variant="ghost" type="button" size="sm" onClick={() => onRemove(id, 'combo')}>❌</Button>
       </CardHeader>
       <CardContent className="text-sm text-gray-600">
-        <p>🎟 Áp dụng từ: {combo?.applyDate}</p>
-        <p>🌐 Gồm tour ID: {combo?.idTour}, khách sạn ID: {combo?.idHotel}</p>
+        <p>📅 Áp dụng từ: <span className="font-semibold">{combo?.applyDate}</span></p>
+        <h3 className="font-bold py-3">📦Bao gồm:</h3>
+        <ul className="space-y-2">
+          <li className="space-y-2">
+            <h3 className="text-md">🗺️  Tour: <span className="font-semibold">{tour?.name}</span></h3>
+            <p> 📍   Hành trình: <span className="font-semibold">{tour?.schedule}</span></p>
+          </li>
+          <li className="space-y-2">
+            <h3>🏨 Khách sạn: <span className="font-semibold">{hotel?.name}</span></h3>
+            <p>📌 Địa chỉ: <span className="font-semibold">{hotel?.address}</span></p>
+          </li>
+        </ul>
       </CardContent>
       <CardFooter className="pb-4 px-2">
-        <p className="text-red-500 font-semibold px-0">Giá combo: {combo?.price} VND</p>
+        <p className="text-red-500 font-semibold px-0">{combo?.price} VND</p>
       </CardFooter>
     </Card>
   );

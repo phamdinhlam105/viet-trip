@@ -8,7 +8,7 @@ import WhyChooseUs from "@/components/whychooseus/why-us";
 
 export default function Home() {
   return (
-    <div>
+    <div className="md:pt-28 pt-20">
       <HomePageBanner />
       <div className="md:px-[10%] px-2 py-5">
         <TopCarousel />

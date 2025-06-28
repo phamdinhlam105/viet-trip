@@ -21,12 +21,12 @@ export default function TourBookingSheet({ openState }: { openState: boolean }) 
     }
   }, [openState]);
 
-  const onRemove = (id: number) => {
-    removeBookingItem(id);
+  const onRemove = (id: number, type: string) => {
+    removeBookingItem(id,type);
     setData(getBookingItems);
     toast.warning("Xóa chương trình", {
       description: `Đã xóa chương trình`,
-      dismissible: true, 
+      dismissible: true,
     })
   }
 
@@ -35,7 +35,7 @@ export default function TourBookingSheet({ openState }: { openState: boolean }) 
     removeAllBookingItems();
     toast.success("Đăng ký tư vấn thành công", {
       description: `Cảm ơn bạn đã gửi biểu mẫu đăng ký. Chúng tôi sẽ sớm liên hệ với bạn qua số điện thoại`,
-      dismissible: true, 
+      dismissible: true,
     })
   }
 

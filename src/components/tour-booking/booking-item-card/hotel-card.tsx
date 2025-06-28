@@ -1,16 +1,21 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getHotelById } from "@/lib/bookingStorage";
-export default function HotelCard({ id, onRemove }: { id: number; onRemove: (index: number) => void }) {
+import Image from "next/image";
+
+export default function HotelCard({ id, onRemove }: { id: number; onRemove: (index: number, type: string) => void }) {
 
     const hotel = getHotelById(id);
     return (
-        <Card>
-            <CardHeader className="flex justify-between ids-start pb-2">
-                <CardTitle>{hotel?.name}</CardTitle>
-                <Button variant="ghost" type="button" size="sm" onClick={() => onRemove(id)}>❌</Button>
+        <Card className="w-full p-0">
+            <CardHeader className="flex justify-between items-center p-2">
+                <CardTitle className="px-2">{hotel?.name}</CardTitle>
+                <Button variant="ghost" type="button" size="sm" className="w-1/5" onClick={() => onRemove(id,'hotel')}>❌</Button>
             </CardHeader>
-            <CardContent className="text-sm text-gray-600">
+            <CardContent className="text-sm text-gray-600 space-y-3 px-2">
+                <div className="w-full aspect-[2/1] relative">
+                    {hotel && <Image src={hotel?.thumbnail} alt={""} fill />}
+                </div>
                 <p>📍 Địa chỉ: {hotel?.address}</p>
                 <p>🕐 Giờ mở cửa: {hotel?.openTime}</p>
             </CardContent>

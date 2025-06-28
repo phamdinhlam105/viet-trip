@@ -68,7 +68,7 @@ export default async function TourDetail({ params }: { params: Params }) {
     }
 
     return (
-        <div className="md:px-[10%]">
+        <div className="md:px-[10%] md:pt-28 pt-20">
             <div className="px-2 py-10 md:flex space-x-4">
                 <div className="md:w-3/4 w-full">
                     <div className="flex space-x-2 pb-4">
@@ -78,11 +78,14 @@ export default async function TourDetail({ params }: { params: Params }) {
                     </div>
                     <h1 className="text-3xl font-bold mb-4">{tour.name}</h1>
                     <TourDetailGallery images={tour.images} />
+                    <div className="md:hidden py-2">
+                        <TourSidebarOffer {...tour} />
+                    </div>
                     <TourMainInformation {...tour.additionalDetail} />
                     <TourSchedule {...tour} />
                     <NoticeInformation />
                 </div>
-                <div className="md:w-1/4 md:relative">
+                <div className="md:w-1/4 md:relative sm:block hidden">
                     <TourSidebarOffer {...tour} />
                 </div>
             </div>

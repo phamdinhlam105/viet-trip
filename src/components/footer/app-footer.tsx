@@ -2,13 +2,17 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "../ui/carousel";
 
 const HOT_TOURS = [
     {
         id: '1',
         name: 'Tour 3 Đảo Cano',
-        link: '/tour/du-lich-nha-trang'
+        link: '/tour/tour-3-dao-cano'
     },
     {
         id: '2',
@@ -38,31 +42,64 @@ const LASTEST_NEWS = [
         name: 'Đồng Cừu Suối Tiên',
         createdAt: '05 Tháng 6, 2025',
         thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/news/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
     },
     {
         id: 2,
         name: '11 địa điểm du lịch Nhật Bản đẹp nhất mùa hè tháng 7-8',
         createdAt: '26 Tháng 6, 2025',
         thumbnail: '/news/nhat-ban.jpg',
-        link: '/news/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
     },
     {
         id: 3,
         name: 'Đồng Cừu Suối Tiên',
         createdAt: '05 Tháng 6, 2025',
         thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/news/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
     },
     {
         id: 4,
         name: 'Đồng Cừu Suối Tiên',
         createdAt: '05 Tháng 6, 2025',
         thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/news/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
     },
 ]
 
+const COOP = [
+    {
+        id: 1,
+        src: '/homepage/coop/vinpearl.png',
+        alt: 'Vinpearl'
+    },
+    {
+        id: 2,
+        src: '/homepage/coop/tu-hai.png',
+        alt: 'Tứ Hải'
+    },
+    {
+        id: 3,
+        src: '/homepage/coop/long-phu.png',
+        alt: 'Phong Phú'
+    },
+    {
+        id: 4,
+        src: '/homepage/coop/sanest.png',
+        alt: 'Sanest'
+    },
+    {
+        id: 5,
+        src: '/homepage/coop/hai-phong.png',
+        alt: 'Hải Phòng'
+    },
+    {
+        id: 6,
+        src: '/homepage/coop/resort.png',
+        alt: 'Resort'
+    },
+
+]
 
 export default function AppFooter() {
 
@@ -75,7 +112,7 @@ export default function AppFooter() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'bottom',
             }}
-            className="justify-self-center justify-items-center py-5 space-y-3 w-full">
+            className="justify-self-center justify-items-center py-10 space-y-4 w-full">
             <h3 className="text-xl font-bold">
                 Đối Tác Thân Thiết
             </h3>
@@ -84,44 +121,34 @@ export default function AppFooter() {
             <p className="md:text-lg text-sm text-center font-semibold">
                 Dối Tác Chúng Tôi Bao Gồm Các Công Ty Du Lịch, Lữ Hành, Khách Sạn...
             </p>
-            <div className="grid md:grid-cols-6 grid-cols-3 gap-4 justify-center px-2">
-                <Image
-                    src={'/homepage/coop/vinpearl.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
-                <Image
-                    src={'/homepage/coop/tu-hai.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
-                <Image
-                    src={'/homepage/coop/long-phu.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
-                <Image
-                    src={'/homepage/coop/sanest.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
-                <Image
-                    src={'/homepage/coop/hai-phong.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
-                <Image
-                    src={'/homepage/coop/resort.png'}
-                    alt={"Tin tức mới nhất"}
-                    width={100}
-                    height={100}
-                />
+            <div className="grid grid-cols-6 gap-4 justify-center px-2 hidden sm:grid">
+                {COOP.map(item =>
+                    <Image
+                        key={item.id}
+                        src={item.src}
+                        alt={item.alt}
+                        width={100}
+                        height={100}
+                    />
+                )}
             </div>
+            <Carousel className="w-full py-5 sm:hidden">
+                <CarouselContent className="flex">
+                    {COOP.map(item =>
+                        <CarouselItem
+                            key={item.id}
+                            className="basis-1/3 px-2">
+                            <div className="relative w-full aspect-[3/2]">
+                                <Image
+                                    src={item.src}
+                                    alt={item.alt}
+                                    fill
+                                />
+                            </div>
+                        </CarouselItem>
+                    )}
+                </CarouselContent>
+            </Carousel>
         </div>
         <div className="md:px-20 px-2 py-5 space-y-5">
             <div className="md:grid md:grid-cols-3 space-y-6">
