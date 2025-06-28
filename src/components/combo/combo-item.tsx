@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "lucide-react"
 
 export default function ComboItem({ id, arrival, departure, schedule, accommodation, transportation, price }: {
-    id: string,
+    id: number,
     arrival: string,
     departure: string,
     schedule: string,

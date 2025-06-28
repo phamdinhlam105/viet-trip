@@ -1,5 +1,4 @@
 import { Tour } from "@/components/models/app-models";
-import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture";
 import { generateTourStaticParams } from "@/components/static-params/generate-params";
 import TourMainInformation from "@/components/tourpage/tour-infor-page/main-infor";
 import NoticeInformation from "@/components/tourpage/tour-infor-page/notice-infor";

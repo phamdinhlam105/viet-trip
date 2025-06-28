@@ -94,17 +94,34 @@ const COMBO_LIST = [
         transportation: 'Máy bay',
         price: '5.900.000'
     }
-
 ]
+
+type ComboItemType = {
+    id: number;
+    arrival: string;
+    departure: string;
+    schedule: string;
+    accommodation: string;
+    transportation: string;
+    price: string;
+};
+
 export default function ComboSection() {
 
-    const groupIntoPairs = (array: any[]) => {
-        const result = []
+    const groupIntoPairs = (array: ComboItemType[]): [ComboItemType, ComboItemType][] => {
+        const result: [ComboItemType, ComboItemType][] = [];
+
         for (let i = 0; i < array.length; i += 2) {
-            result.push([array[i], array[i + 1]])
+            // đảm bảo item[i + 1] tồn tại
+            if (array[i + 1]) {
+                result.push([array[i], array[i + 1]]);
+            } else {
+                result.push([array[i], array[i]]); // hoặc xử lý khác tùy ý
+            }
         }
-        return result
-    }
+
+        return result;
+    };
     const comboPairs = groupIntoPairs(COMBO_LIST)
 
     return <div className="space-y-4">

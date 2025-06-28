@@ -97,7 +97,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
         return notFound();
     }
     return <div className="md:flex md:px-[5%] px-2 py-4 space-x-2 space-y-10">
-        <NewsInformtion news={NEWS} />
+        <NewsInformtion {...NEWS} />
         <NewsSideBar />
     </div>
 }

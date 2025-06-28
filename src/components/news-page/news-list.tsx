@@ -1,21 +1,28 @@
 "use client"
 import { useMemo, useState } from "react";
 import NewsItem from "./news-item";
-import { ChevronLeft, ChevronRight,  Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Button } from "../ui/button";
 
 
 const ITEMS_PER_PAGE = 9;
 
-export default function NewsList({ newsList }: { newsList: unknown }) {
+export default function NewsList({ newsList }: {
+    newsList: {
+        id: number,
+        title: string,
+        createAt: string,
+        description: string,
+        href: string,
+        thumbnail: string
+    }[]
+}) {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const [currentPage, setCurrentPage] = useState(1);
 
-    const newsListData = newsList as any[];
-
     const filteredNews = useMemo(() => {
-        return newsListData
+        return newsList
             .filter(news =>
                 news.title.toLowerCase().includes(searchTerm.toLowerCase())
             )
@@ -66,7 +73,7 @@ export default function NewsList({ newsList }: { newsList: unknown }) {
 
         {/* List */}
         <div className="grid md:grid-cols-3 gap-6">
-            {paginatedNews.map((news) => (<NewsItem key={news.id} news={news} />
+            {paginatedNews.map((news) => (<NewsItem key={news.id} {...news} />
             ))}
         </div>
 
