@@ -29,7 +29,7 @@ type PageProps = {
     };
 };
 
-export default function HotelDetail({ params }: PageProps) {
+export default async function HotelDetail({ params }: PageProps) {
     const { slug } = params;
 
     // 🔒 Dữ liệu thực tế sẽ được thay vào đây
