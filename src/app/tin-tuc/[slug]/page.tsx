@@ -77,7 +77,7 @@ const NEWS = {
 135/8 Nguyễn Thái Học, Vạn Thạnh, TP. Nha Trang, Khánh Hoà<br />
 Tel: 091 494 3366 - 084 246 6868<br />
 Fanpage: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target="_blank">https://www.facebook.com/viettrip</a><br />
-Website: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target="_blank">www.viettrip.com.vn</a></p>
+Website: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target="_blank">www.viettriptourist.com</a></p>
 
 <p style="font-style: italic;">Nguồn bài viết: Sưu tầm và tổng hợp<br />
 @camnangdulich #camnangdulich</p>
@@ -100,7 +100,7 @@ export default async function NewsDetailPage({ params }: { params: Params }) {
     if (!hotel) {
         return notFound();
     }
-    return <div className="md:flex md:px-[10%] px-2 pb-5 space-x-2 space-y-10 md:pt-28 pt-25">
+    return <div className="md:flex md:px-[10%] px-2 pb-5 space-x-2 space-y-10 md:pt-40 pt-25">
         <NewsInformtion {...NEWS} />
         <NewsSideBar />
     </div>

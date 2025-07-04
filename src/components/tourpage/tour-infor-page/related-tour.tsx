@@ -4,7 +4,7 @@ import TourItem from "@/components/tour/tour-item"
 export default function RelatedTour({id}:{id:string}) {
 
     const otherTours = TOUR_MOCK_DATA.filter(hotel => hotel.id !== id);
-     const randomTours = otherTours
+    const randomTours = otherTours
     .sort(() => Math.random() - 0.5) 
     .slice(0, 3); 
     return <div className="py-4">

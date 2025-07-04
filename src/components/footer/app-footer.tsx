@@ -7,34 +7,13 @@ import {
     CarouselContent,
     CarouselItem,
 } from "../ui/carousel";
+import { TOUR_MOCK_DATA } from "../mock-data/tour";
 
-const HOT_TOURS = [
-    {
-        id: '1',
-        name: 'Tour Bình Ba',
-        link: '/tour/tour-binh-ba'
-    },
-    {
-        id: '2',
-        name: 'Đồng Cừu - Vĩnh Hy - Hang Rái - Vườn Nho',
-        link: '/tour/tour-3-dao-cano'
-    },
-    {
-        id: '3',
-        name: 'Tour Bình Hưng',
-        link: '/tour/tour-binh-hungtour-dong-cuu-vinh-hy-vuon-nho-hang-rai'
-    },
-    {
-        id: '4',
-        name: 'Tour Nha Trang - Bình Ba',
-        link: '/tour/tour-3-dao-cano'
-    },
-    {
-        id: '5',
-        name: 'Tour Nha Trang - Bình Ba 2 Ngày 1 Đêm',
-        link: '/tour/tour-3-dao-cano'
-    },
-]
+const HOT_TOURS = TOUR_MOCK_DATA.map(item=>({
+    id:item.id,
+    name:item.name,
+    link:item.slug
+})).slice(0,5);
 
 const LASTEST_NEWS = [
     {
@@ -162,7 +141,7 @@ export default function AppFooter() {
                         135/8 Nguyễn Thái Học, Vạn Thạnh, TP. Nha Trang, Khánh Hoà<br />
                         091 494 3366 - 084 246 6868<br />
                         nhatrangdulich.vn@gmail.com<br />
-                        www.viettriptourist.vn<br />
+                        www.viettriptourist.com<br />
                         Khám Phá. Trải Nghiệm. Tận hưởng.<br />
                         Viet Trip Tourist - Your Journey, Our Passion!<br />
                         135/8 Nguyễn Thái Học, TP. Nha Trang, Khánh Hoà<br />

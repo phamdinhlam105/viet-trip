@@ -21,7 +21,7 @@ export default function AboutUs() {
                 <span className="block mb-2" />
                 ✉️ nhatrangdulich.vn@gmail.com
                 <span className="block mb-2" />
-                🌐 www.nhatrangdulich.vn
+                🌐 www.viettriptourist.com
                 <span className="block mb-2" />
                 Khám phá. Trải nghiệm. Tận hưởng.Việt Trip Tourist - Your Journey, Our Passion!
                 <span className="block mb-2" />
