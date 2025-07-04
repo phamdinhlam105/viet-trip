@@ -11,18 +11,18 @@ import {
 const HOT_TOURS = [
     {
         id: '1',
-        name: 'Tour 3 Đảo Cano',
-        link: '/tour/tour-3-dao-cano'
+        name: 'Tour Bình Ba',
+        link: '/tour/tour-binh-ba'
     },
     {
         id: '2',
-        name: 'Tham Quan Đảo Điệp Sơn - Dốc Lết',
+        name: 'Đồng Cừu - Vĩnh Hy - Hang Rái - Vườn Nho',
         link: '/tour/tour-3-dao-cano'
     },
     {
         id: '3',
-        name: 'Đồng Cừu - Vĩnh Hy - Hang Rái - Vườn Nho',
-        link: '/tour/tour-3-dao-cano'
+        name: 'Tour Bình Hưng',
+        link: '/tour/tour-binh-hungtour-dong-cuu-vinh-hy-vuon-nho-hang-rai'
     },
     {
         id: '4',

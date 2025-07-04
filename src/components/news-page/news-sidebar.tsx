@@ -1,4 +1,3 @@
-import { truncateText } from "@/lib/truncate-text"
 
 const LASTEST_NEWS = [
     {
@@ -54,14 +53,14 @@ export default function NewsSideBar() {
             <div className="flex flex-col space-y-2">
                 <h2 className="text-xl font-bold">Tin tức mới</h2>
                 <ul className="list-disc pl-6 space-y-2">
-                    {LASTEST_NEWS.map(item => <li key={item.id}><a href={item.link} className="hover:text-blue-600 hover:underline"> {truncateText(item.title, 50)}</a></li>)}
+                    {LASTEST_NEWS.map(item => <li key={item.id}><a href={item.link} className="hover:text-blue-600 hover:underline line-clamp-2"> {item.title}</a></li>)}
                 </ul>
 
             </div>
             <div className="flex flex-col space-y-2">
                 <h2 className="text-xl font-bold">Tin tức gần đây</h2>
                 <ul className="list-disc pl-6 space-y-2">
-                    {RECENT_VIEW.map(item => <li key={item.id}><a href={item.link} className="hover:text-blue-600 hover:underline"> {truncateText(item.title, 50)}</a></li>)}
+                    {RECENT_VIEW.map(item => <li key={item.id}><a href={item.link} className="hover:text-blue-600 hover:underline line-clamp-2"> {item.title}</a></li>)}
                 </ul>
             </div>
         </div>

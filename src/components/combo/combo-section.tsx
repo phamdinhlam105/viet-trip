@@ -5,7 +5,7 @@ import ComboItem from "./combo-item";
 
 export const COMBO_LIST = [
     {
-        id: 1,
+        id: "1",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -14,7 +14,7 @@ export const COMBO_LIST = [
         price: '1.500.000'
     },
     {
-        id: 2,
+        id: "2",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -23,7 +23,7 @@ export const COMBO_LIST = [
         price: '3.500.000'
     },
     {
-        id: 3,
+        id: "3",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -32,7 +32,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 4,
+        id: "4",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -41,7 +41,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 5,
+        id: "5",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -50,7 +50,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 6,
+        id: "6",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -59,7 +59,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 7,
+        id: "7",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -68,7 +68,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 8,
+        id: "8",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -77,7 +77,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 9,
+        id: "9",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -86,7 +86,7 @@ export const COMBO_LIST = [
         price: '5.900.000'
     },
     {
-        id: 10,
+        id: "10",
         arrival: 'Nha Trang',
         departure: 'Hà Nội',
         schedule: '20/07/2025',
@@ -97,7 +97,7 @@ export const COMBO_LIST = [
 ]
 
 type ComboItemType = {
-    id: number;
+    id: string;
     arrival: string;
     departure: string;
     schedule: string;

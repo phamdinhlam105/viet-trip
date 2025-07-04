@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
 export default function TourSchedule({ schedule, scheduleDetail }: {
-    schedule: string[],
+    schedule: string,
     scheduleDetail: string
 }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ export default function TourSchedule({ schedule, scheduleDetail }: {
         </h2>
         <CollapsibleTrigger asChild>
             <Button variant="outline" size="icon" className="rounded-none bg-gray-200 w-full text-start justify-between p-4 py-6">
-                <p>{schedule.join(" - ")}</p>
+                <p>{schedule}</p>
                 <ChevronDown
                     className={` transition-transform duration-300 ${isOpen ? '-rotate-180' : 'rotate-0'}`}
                 />

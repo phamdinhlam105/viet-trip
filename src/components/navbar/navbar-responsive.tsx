@@ -13,7 +13,7 @@ export default function NavigationResponsive() {
     const [isOpen, setIsOpen] = useState(false);
   return <nav className="w-full h-20 border-radius-md shadow-md fixed top-0 z-10 bg-white flex items-center">
     <div className="md:px-[10%] px-2 w-full items-center flex justify-between space-x-2 py-2">
-      <Link href="/" className="relative w-1/5 md:w-1/10 aspect-[2/1]">
+      <Link href="/" className="relative w-1/4 aspect-[2/1]">
         <Logo />
       </Link>
       <div className="flex items-center space-x-2">

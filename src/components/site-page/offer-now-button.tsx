@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import TourBookingSheet from "../tour-booking/tour-booking-sheet";
 
-export default function OfferNowButton({id,type}:{id:number,type:string}) {
+export default function OfferNowButton({id,type}:{id:string,type:string}) {
 
     const [open, setOpen] = useState(false);
 

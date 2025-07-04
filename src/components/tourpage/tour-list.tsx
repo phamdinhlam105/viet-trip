@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -9,68 +9,41 @@ import {
 import { Button } from "@/components/ui/button";
 import TourItem from "../tour/tour-item";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const TOUR_LIST = [
-    {
-        id: 1,
-        title: 'Tour 3 Đảo Cano',
-        describe: 'Tour 3 Đảo Cano là tour chất lượng, nổi tiếng ở Nha Trang. Khách sẽ hài lòng với chất lượng phục vụ của Viet Trip Tourist.',
-        departure: 'TP. Nha Trang',
-        schedule: 'Hàng ngày',
-        price: '450.000',
-        thumbnail: '/homepage/tour.jpg'
-    },
-    {
-        id: 2,
-        title: 'Tour Lặn Biển San Hô',
-        describe: 'Tour 3 Đảo Cano là tour chất lượng, nổi tiếng ở Nha Trang. Khách sẽ hài lòng với chất lượng phục vụ của Viet Trip Tourist.',
-        departure: 'TP. Nha Trang',
-        schedule: 'Hàng ngày',
-        price: '450.000',
-        thumbnail: '/tour/vinh-san-ho-2.jpg'
-    },
-    {
-        id: 3,
-        title: 'Tour 3 Đảo Cano',
-        describe: 'Tour 3 Đảo Cano là tour chất lượng, nổi tiếng ở Nha Trang. Khách sẽ hài lòng với chất lượng phục vụ của Viet Trip Tourist.',
-        departure: 'TP. Nha Trang',
-        schedule: 'Hàng ngày',
-        price: '450.000',
-        thumbnail: '/homepage/tour.jpg'
-    },
-    {
-        id: 4,
-       title: 'Tour Lặn Biển San Hô',
-        describe: 'Tour 3 Đảo Cano là tour chất lượng, nổi tiếng ở Nha Trang. Khách sẽ hài lòng với chất lượng phục vụ của Viet Trip Tourist.',
-        departure: 'TP. Nha Trang',
-        schedule: 'Hàng ngày',
-        price: '450.000',
-        thumbnail: '/tour/vinh-san-ho-2.jpg'
-    },
-    {
-        id: 5,
-        title: 'Tour 3 Đảo Cano',
-        describe: 'Tour 3 Đảo Cano là tour chất lượng, nổi tiếng ở Nha Trang. Khách sẽ hài lòng với chất lượng phục vụ của Viet Trip Tourist.',
-        departure: 'TP. Nha Trang',
-        schedule: 'Hàng ngày',
-        price: '450.000',
-        thumbnail: '/homepage/tour.jpg'
-    },
-]
+import { TOUR_MOCK_DATA } from "../mock-data/tour";
 
 
 export default function TourList() {
 
     const [sortBy, setSortBy] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 6; // số tour trên mỗi trang
+    const [itemsPerPage, setItemsPerPage] = useState(6);
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setItemsPerPage(3); 
+            } else {
+                setItemsPerPage(6); 
+            }
+        };
+        handleResize(); 
+        window.addEventListener("resize", handleResize);
 
-    const sortedTourList = [...TOUR_LIST].sort((a, b) => {
-        if (sortBy === "price-asc") return parseInt(a.price.replace(".", "")) - parseInt(b.price.replace(".", ""));
-        if (sortBy === "price-desc") return parseInt(b.price.replace(".", "")) - parseInt(a.price.replace(".", ""));
-        return 0;
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+    const sortedTourList = [...TOUR_MOCK_DATA].sort((a, b) => {
+        const priceA = a.price === "Liên hệ" ? null : parseInt(a.price.replace(".", ""));
+        const priceB = b.price === "Liên hệ" ? null : parseInt(b.price.replace(".", ""));
+
+        if (priceA === null && priceB !== null) return -1;
+        if (priceA !== null && priceB === null) return 1;
+
+        if (sortBy === "price-asc") return (priceA ?? 0) - (priceB ?? 0);
+        if (sortBy === "price-desc") return (priceB ?? 0) - (priceA ?? 0);
+
+        return 0; 
     });
-
     const totalPages = Math.ceil(sortedTourList.length / itemsPerPage);
     const paginatedTours = sortedTourList.slice(
         (currentPage - 1) * itemsPerPage,
@@ -118,7 +91,7 @@ export default function TourList() {
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage === 1}
             >
-                <ChevronLeft/>
+                <ChevronLeft />
             </Button>
 
             {[...Array(totalPages)].map((_, index) => (
@@ -137,7 +110,7 @@ export default function TourList() {
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
             >
-                <ChevronRight/>
+                <ChevronRight />
             </Button>
         </div>
     </div>

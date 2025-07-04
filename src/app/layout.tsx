@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavigationBar from "../components/navbar/navbar";
 import AppFooter from "@/components/footer/app-footer";
 import { Toaster } from "sonner";
-import NavigationResponsive from "@/components/navbar/navbar-responsive";
+import ResponsiveNavbar from "@/components/navbar/navbar-check";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,12 +30,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable}  antialiased`}
       >
-        <div className="hidden md:block">
-          <NavigationBar />
-        </div>
-        <div className="block md:hidden">
-          <NavigationResponsive />
-        </div>
+       <ResponsiveNavbar />
         <Toaster richColors position="top-center" />
         <main>{children}</main>
         <AppFooter />

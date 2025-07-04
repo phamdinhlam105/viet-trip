@@ -2,69 +2,13 @@
 
 import HotelList from "@/components/hotel-page/hotel-list"
 import HotelSideBar from "@/components/hotel-page/sidebar-filter"
-import { Hotel } from "@/components/models/app-models"
+import { HOTEL_MOCK_DATA } from "@/components/mock-data/hotel"
 import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Menu } from "lucide-react"
 import { useCallback, useState } from "react"
 
-
-const LIST_HOTELS: Hotel[] = [
-    {
-        id: '1',
-        name: 'Queen Ann Nha Trang Hotel',
-        address: 'Trần Phú',
-        star: 4,
-        price: '1.000.0000',
-        type: 'Khách sạn',
-        link: '/hotel/queen-ann-nha-trang-hotel',
-        thumbnail: '/hotel/queen-ann.jpg'
-    },
-    {
-        id: '2',
-        name: 'Mường Thanh Nha Trang Hotel',
-        address: 'Trần Phú',
-        star: 5,
-        price: '1.000.0000',
-        discountPrice: '880.000',
-        type: 'Khách sạn',
-        link: '/hotel/queen-ann-nha-trang-hotel',
-        thumbnail: '/hotel/muong-thanh-1.jpg'
-    },
-    {
-        id: '3',
-        name: 'Queen Ann Nha Trang Hotel',
-        address: 'Trần Phú',
-        star: 4,
-        price: '1.000.0000',
-        type: 'Khách sạn',
-        link: '/hotel/queen-ann-nha-trang-hotel',
-        thumbnail: '/hotel/queen-ann.jpg'
-    },
-    {
-        id: '4',
-        name: 'Mường Thanh Nha Trang Hotel',
-        address: 'Trần Phú',
-        star: 5,
-        price: '1.000.0000',
-        discountPrice: '880.000',
-        type: 'Khách sạn',
-        link: '/hotel/queen-ann-nha-trang-hotel',
-        thumbnail: '/hotel/muong-thanh-1.jpg'
-    },
-    {
-        id: '5',
-        name: 'Annamadara Resort',
-        address: 'Trần Phú',
-        star: 3,
-        price: '1.500.0000',
-        discountPrice: '990.000',
-        type: 'Khu nghỉ dưỡng',
-        link: '/hotel/queen-ann-nha-trang-hotel',
-        thumbnail: '/hotel/anna-1.jpg'
-    },
-]
 
 export default function HotelPage() {
     const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
@@ -85,7 +29,7 @@ export default function HotelPage() {
         setSelectedStar(prev => (prev === star ? null : star));
     };
 
-    const filteredData = LIST_HOTELS.filter(hotel => {
+    const filteredData = HOTEL_MOCK_DATA.filter(hotel => {
         const matchType = selectedTypes.length === 0 || selectedTypes.includes(hotel.type);
         const matchStar = selectedStar === null || hotel.star === selectedStar;
         const matchName = !searchName || hotel.name.toLowerCase().includes(searchName.toLowerCase());

@@ -14,14 +14,14 @@ import { toast } from "sonner";
 export default function TourBookingSheet({ openState }: { openState: boolean }) {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState<[{ id: number, type: string }]>();
+  const [data, setData] = useState<[{ id: string, type: string }]>();
   useEffect(() => {
     if (openState) {
       setData(getBookingItems);
     }
   }, [openState]);
 
-  const onRemove = (id: number, type: string) => {
+  const onRemove = (id: string, type: string) => {
     removeBookingItem(id,type);
     setData(getBookingItems);
     toast.warning("Xóa chương trình", {
@@ -99,7 +99,7 @@ export default function TourBookingSheet({ openState }: { openState: boolean }) 
 
         <div>
           <Label className="font-semibold">Ghi chú</Label>
-          <textarea className="w-full" rows={4} placeholder="Ghi chú thêm (nếu có)" />
+          <textarea className="w-full" rows={4} placeholder="Ghi chú thêm về tour hoặc khách sạn (nếu có)" />
         </div>
 
         <div className="space-y-2">

@@ -6,9 +6,10 @@ import { useState } from "react";
 import TourBookingSheet from "../tour-booking/tour-booking-sheet";
 import { Button } from "../ui/button";
 import { addBookingItem } from "@/lib/bookingStorage";
+import { formatPrice } from "@/lib/formatPrice";
 
 export default function ComboItem({ id, arrival, departure, schedule, accommodation, transportation, price }: {
-    id: number,
+    id: string,
     arrival: string,
     departure: string,
     schedule: string,
@@ -51,7 +52,7 @@ export default function ComboItem({ id, arrival, departure, schedule, accommodat
                     </div>
                     <div className="w-full text-right font-semibold">
                         <p>Giá từ</p>
-                        <p className="text-lg"><span className=" font-bold text-[#FF0000]">{price} đ</span> / Khách</p>
+                        <p className="text-lg"><span className=" font-bold text-[#FF0000]"> {formatPrice(price)}</span> / Khách</p>
                     </div>
                 </Button>
 

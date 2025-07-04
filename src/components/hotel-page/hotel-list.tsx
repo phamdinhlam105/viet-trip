@@ -1,24 +1,49 @@
 import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react";
 import OfferNowButton from "../site-page/offer-now-button";
 import Image from "next/image";
-import { Hotel } from "../models/app-models";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { formatPrice } from "@/lib/formatPrice";
 
 export default function HotelList({
     listdata,
     sortBy,
     onSortChange,
 }: {
-    listdata: Hotel[],
+    listdata: {
+        id: string,
+        name: string,
+        type: string,
+        star: number,
+        slug: string,
+        price: string,
+        discountPrice?: string,
+        thumbnail: string,
+        address: string
+    }[],
     sortBy: string,
     onSortChange: (value: string) => void
 }) {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 4;
+     const [itemsPerPage, setItemsPerPage] = useState(6);
+        useEffect(() => {
+            const handleResize = () => {
+                if (window.innerWidth <= 768) {
+                    setItemsPerPage(3); 
+                } else {
+                    setItemsPerPage(6); 
+                }
+            };
+            handleResize(); 
+            window.addEventListener("resize", handleResize);
+    
+            return () => {
+                window.removeEventListener("resize", handleResize);
+            };
+        }, []);
 
     const sortedList = [...listdata].sort((a, b) => {
         const normalizePrice = (value: string | undefined) =>
@@ -89,7 +114,7 @@ export default function HotelList({
 
         {paginatedList.map(hotel => (
             <div key={hotel.id} className="md:flex md:items-stretch w-full min-h-50 border-gray-200 shadow-lg rounded-lg">
-                <Link className="md:w-[80%] w-full md:flex" href={hotel.link}>
+                <Link className="md:w-[80%] w-full md:flex" href={`hotel/${hotel.slug}`}>
                     <div className="md:w-1/3 w-full aspect-[2/1]">
                         <div className="relative w-full h-full">
                             <Image
@@ -100,16 +125,19 @@ export default function HotelList({
                             />
                         </div>
                     </div>
-                    <div className=" border-gray-50 p-4 space-y-1 md:w-2/3">
-                        <div className="md:flex items-center space-x-4 space-y-2">
+                    <div className=" border-gray-50 md:flex md:flex-col justify-between p-4 space-y-1 md:w-2/3">
+                        <div className="items-center space-x-4 space-y-2">
                             <h2 className="text-lg font-semibold">{hotel.name} </h2>
                             <span className="flex space-x-2">
                                 {[...Array(hotel.star)].map((_, i) => (
                                     <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                                 ))}
+                                {[...Array(5 - hotel.star)].map((_, i) => (
+                                    <Star key={`empty-${i}`} className="w-4 h-4 text-gray-300 fill-gray-300" />
+                                ))}
                             </span>
                         </div>
-                        <div className="bg-gray-100 p-2 flex space-x-4">
+                        <div className="bg-gray-100 p-2 flex space-x-2">
                             <MapPin />
                             <p className=""> {hotel.address}</p>
                         </div>
@@ -121,11 +149,11 @@ export default function HotelList({
                 <div className="py-5 px-2 md:w-[20%] space-y-4 bg-gray-200 md:rounded-r-lg items-center flex flex-col justify-end">
                     <div className=" text-md items-center flex flex-col">
                         Giá mỗi đêm
-                        <h3 className={`${hotel.discountPrice ? 'line-through' : 'text-red-500 font-bold'}`}>{hotel.price} đ</h3>
-                        {hotel.discountPrice ? <h3 className="text-red-500 font-bold">{hotel.discountPrice} đ</h3> : undefined}
-                        <p className="italic text-xs tracking-tight my-1">Giá chưa bao gồm thuế và phí</p>
+                        <h3 className={`${hotel.discountPrice ? 'line-through' : 'text-red-500 font-bold'}`}> {formatPrice(hotel.price)}</h3>
+                        {hotel.discountPrice ? <h3 className="text-red-500 font-bold">{formatPrice(hotel.discountPrice)}</h3> : undefined}
+                        <p className="italic text-xs tracking-tight my-1 text-center">Giá chưa bao gồm thuế và phí</p>
                     </div>
-                    <OfferNowButton id={parseInt(hotel.id)} type="hotel" />
+                    <OfferNowButton id={hotel.id} type="hotel" />
                 </div>
             </div>
         ))}

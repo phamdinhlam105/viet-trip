@@ -1,4 +1,4 @@
-import { truncateText } from '@/lib/truncate-text';
+
 import Image from 'next/image';
 import Link from 'next/link';
 export default function NewsItem({ href, thumbnail, title, description, createAt }: {
@@ -24,8 +24,8 @@ export default function NewsItem({ href, thumbnail, title, description, createAt
                 <h3 className='text-md font-bold'>
                     {title}
                 </h3>
-                <p className='text-sm'>
-                    {truncateText(description, 200)}
+                <p className='text-sm line-clamp-4'>
+                    {description}
                 </p>
 
             </div>

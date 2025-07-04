@@ -1,12 +1,13 @@
 import OfferNowButton from "@/components/site-page/offer-now-button";
+import { formatPrice } from "@/lib/formatPrice";
 
 export default function HotelSidebarOffer({ id, price, description }: { id: string, price: string, description: string }) {
 
     return <div className="space-y-2 sticky top-32">
         <div className="p-4 space-y-2 rounded-lg shadow-lg border border-gray-200">
-            <h2><span className="text-2xl font-bold text-red-500">{price} đ</span>/ đêm</h2>
+            <h2><span className="text-2xl font-bold text-red-500">{formatPrice(price)}</span>/ đêm</h2>
             <p className="text-sm">Giá chưa bao gồm thuế và phí</p>
-            <OfferNowButton id={parseInt(id)} type="hotel"/>
+            <OfferNowButton id={id} type="hotel"/>
         </div>
         <div className="space-y-2">
             <p className="mb-4">{description}</p>

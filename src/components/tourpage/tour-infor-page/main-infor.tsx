@@ -1,6 +1,6 @@
 
-export default function TourMainInformation({ mainFeature, location, food, suitablePerson, idealTime, transportation, promotion }: {
-    mainFeature: string,
+export default function TourMainInformation({ description, location, food, suitablePerson, idealTime, transportation, promotion }: {
+    description: string,
     location: string,
     food: string,
     suitablePerson: string,
@@ -15,7 +15,7 @@ export default function TourMainInformation({ mainFeature, location, food, suita
                 Điểm nhấn của chương trình:
             </h2>
 
-            <p>{mainFeature}</p>
+            <p>{description}</p>
         </div>
         <div className="py-5 px-2 space-y-2">
             <h2 className="text-center font-bold  md:text-2xl text-lg">THÔNG TIN THÊM VỀ CHUYẾN ĐI</h2>

@@ -2,8 +2,9 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { getHotelById } from "@/lib/bookingStorage";
 import Image from "next/image";
+import { formatPrice } from "@/lib/formatPrice";
 
-export default function HotelCard({ id, onRemove }: { id: number; onRemove: (index: number, type: string) => void }) {
+export default function HotelCard({ id, onRemove }: { id: string; onRemove: (index: string, type: string) => void }) {
 
     const hotel = getHotelById(id);
     return (
@@ -20,7 +21,7 @@ export default function HotelCard({ id, onRemove }: { id: number; onRemove: (ind
                 <p>🕐 Giờ mở cửa: {hotel?.openTime}</p>
             </CardContent>
             <CardFooter className="pb-4 px-2">
-                <p className="text-red-500 font-semibold">{hotel?.price} VND</p>
+                <p className="text-red-500 font-semibold"> {formatPrice(hotel?.price)}</p>
             </CardFooter>
         </Card>
     );

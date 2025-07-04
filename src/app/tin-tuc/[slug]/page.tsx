@@ -100,7 +100,7 @@ export default async function NewsDetailPage({ params }: { params: Params }) {
     if (!hotel) {
         return notFound();
     }
-    return <div className="md:flex md:px-[10%] px-2 py-4 space-x-2 space-y-10 md:pt-28 pt-20">
+    return <div className="md:flex md:px-[10%] px-2 pb-5 space-x-2 space-y-10 md:pt-28 pt-25">
         <NewsInformtion {...NEWS} />
         <NewsSideBar />
     </div>

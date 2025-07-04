@@ -7,17 +7,17 @@ import { Button } from "@/components/ui/button";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 
-export default function DetailPageGallery({ images }: { images: string[] }) {
+export default function DetailPageGallery({ gallery }: { gallery: string[] }) {
     const [selectedImage, setSelectedImage] = useState(0);
     const [open, setOpen] = useState(false);
     return (
         <Dialog onOpenChange={setOpen} open={open}>
             <DialogTrigger asChild>
                 <Button
-                    style={{ background: `url(${images[4]}`, backgroundSize: 'cover', boxShadow: 'inset 0 0 0 2000px rgba(13, 13, 12, 0.4)' }}
+                    style={{ background: `url(${gallery[4]}`, backgroundSize: 'cover', boxShadow: 'inset 0 0 0 2000px rgba(13, 13, 12, 0.4)' }}
                     variant="ghost"
                     className="hover:bg-transparent w-full h-full inset-0 bg-black/40 flex items-center justify-center text-white text-lg font-semibold">
-                    +{images.length - 3}
+                    +{gallery.length - 3}
                 </Button>
             </DialogTrigger>
             <DialogContent showCloseButton={false} className="min-w-[95%] border-none bg-transparent">
@@ -32,7 +32,7 @@ export default function DetailPageGallery({ images }: { images: string[] }) {
                     {/* Ảnh lớn phía trên */}
                     <div className="relative w-full md:aspect-2/1 aspect-1/1">
                         <Image
-                            src={images[selectedImage]}
+                            src={gallery[selectedImage]}
                             alt="Ảnh lớn"
                             fill
                         />
@@ -40,7 +40,7 @@ export default function DetailPageGallery({ images }: { images: string[] }) {
                 </div>
                 {/* Carousel ảnh nhỏ phía dưới */}
                 <div className="flex gap-2 overflow-x-auto">
-                    {images.map((img, idx) => (
+                    {gallery.map((img, idx) => (
                         <div key={idx} className="relative w-1/3 md:aspect-2/1 aspect-1/1">
                             <Image
                                 src={img}

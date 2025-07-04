@@ -6,37 +6,37 @@ import { Sheet, SheetTrigger } from '../ui/sheet';
 import TourBookingSheet from '../tour-booking/tour-booking-sheet';
 import { addBookingItem } from '@/lib/bookingStorage';
 import { useState } from 'react';
-import { truncateText } from '@/lib/truncate-text';
-export default function TourItem({ id, title, describe, departure, schedule, price, thumbnail }: {
-    id: number,
-    title: string,
-    describe: string,
-    departure: string,
-    schedule: string,
+import { formatPrice } from '@/lib/formatPrice';
+export default function TourItem({ id, name, description, startingPlace, price, thumbnail,slug }: {
+    id: string,
+    name: string,
+    description: string,
+    startingPlace: string,
     price: string,
-    thumbnail: string
+    thumbnail: string,
+    slug:string
 }) {
     const [open, setOpen] = useState(false);
 
     return <div className="w-full flex flex-col justify-between bg-white rounded-lg border border-gray-200 space-y-4 pb-4 shadow-lg">
-        <Link href={'/tour/tour-3-dao-cano'}>
+        <Link href={`/tour/${slug}`}>
             <div className='w-full aspect-[3/2] relative'>
                 <Image className=' rounded-lg' src={thumbnail} alt="Ảnh đại diện tour" fill />
             </div>
 
             <div className='space-y-2 px-4 py-4'>
-                <h3 className='text-md font-bold'>
-                    {title}
+                <h3 className='text-md font-bold line-clamp-2 min-h-12'>
+                    {name}
                 </h3>
-                <p className='block text-sm'>
-                    {truncateText(describe, 90)}
+                <p className='text-sm line-clamp-2'>
+                    {description}
                 </p>
-                <p>Khởi hành: <span className='font-semibold'>{departure}</span></p>
-                <p>Lịch mở tour: {schedule}</p>
+                <p>Khởi hành: <span className='font-semibold'>{startingPlace}</span></p>
+                <p>Lịch mở tour: <span className='font-semibold'>Hằng ngày</span></p>
             </div>
         </Link>
         <div className='flex justify-between items-center my-2 px-4'>
-            <p className='text-[#FF0000] font-bold md:text-lg'>{price}đ</p>
+            <p className='text-[#FF0000] font-bold md:text-lg'> {formatPrice(price)}</p>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                     <Button className='w-1/2 text-md 

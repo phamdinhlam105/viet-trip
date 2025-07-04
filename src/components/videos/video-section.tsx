@@ -21,7 +21,7 @@ const SUBVIDEO_LIST = [
 export default function VideoSection() {
 
     return <div className="w-full space-y-5 py-5">
-        <SectionHeader title="Tour Nha Trang Hot" />
+        <SectionHeader title="Videos Tour Nha Trang Hot" />
         <div className="flex space-x-3">
             <iframe className="md:w-2/3 md:h-122 w-full aspect-[3/2]"
                 src={VIDEO_MAIN.link}
