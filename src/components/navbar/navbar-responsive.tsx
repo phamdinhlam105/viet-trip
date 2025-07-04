@@ -13,7 +13,7 @@ export default function NavigationResponsive() {
     const [isOpen, setIsOpen] = useState(false);
   return <nav className="w-full h-20 border-radius-md shadow-md fixed top-0 z-10 bg-white flex items-center">
     <div className="md:px-[10%] px-2 w-full items-center flex justify-between space-x-2 py-2">
-      <Link href="/" className="relative w-1/4 aspect-[2/1]">
+      <Link href="/" className="w-1/5 aspect-[2/1]">
         <Logo />
       </Link>
       <div className="flex items-center space-x-2">
@@ -35,7 +35,7 @@ export default function NavigationResponsive() {
             </SheetClose>
 
             <div className="flex justify-center">
-              <Link href="/" className=" self-center relative w-2/3 md:w-1/10 aspect-[2/1]">
+              <Link href="/" className=" self-center w-2/3 aspect-[2/1]">
                 <Logo />
               </Link>
             </div>
