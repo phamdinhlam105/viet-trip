@@ -8,41 +8,42 @@ import {
     CarouselItem,
 } from "../ui/carousel";
 import { TOUR_MOCK_DATA } from "../mock-data/tour";
+import { NEWS_MOCK_DATA } from "../mock-data/news";
 
-const HOT_TOURS = TOUR_MOCK_DATA.map(item=>({
-    id:item.id,
-    name:item.name,
-    link:item.slug
-})).slice(0,5);
+const HOT_TOURS = TOUR_MOCK_DATA.map(item => ({
+    id: item.id,
+    name: item.name,
+    link: item.slug
+})).slice(0, 5);
 
 const LASTEST_NEWS = [
     {
-        id: 1,
-        name: 'Đồng Cừu Suối Tiên',
-        createdAt: '05 Tháng 6, 2025',
-        thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        id: NEWS_MOCK_DATA[0].id,
+        name: NEWS_MOCK_DATA[0].title,
+        createdAt: NEWS_MOCK_DATA[0].createAt,
+        thumbnail: NEWS_MOCK_DATA[0].thumbnail,
+        link: `/tin-tuc/${NEWS_MOCK_DATA[0].slug}`
     },
     {
-        id: 2,
-        name: '11 địa điểm du lịch Nhật Bản đẹp nhất mùa hè tháng 7-8',
-        createdAt: '26 Tháng 6, 2025',
-        thumbnail: '/news/nhat-ban.jpg',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        id: NEWS_MOCK_DATA[1].id,
+        name: NEWS_MOCK_DATA[1].title,
+        createdAt: NEWS_MOCK_DATA[1].createAt,
+        thumbnail: NEWS_MOCK_DATA[1].thumbnail,
+        link: `/tin-tuc/${NEWS_MOCK_DATA[1].slug}`
     },
     {
-        id: 3,
-        name: 'Đồng Cừu Suối Tiên',
-        createdAt: '05 Tháng 6, 2025',
-        thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        id: NEWS_MOCK_DATA[2].id,
+        name: NEWS_MOCK_DATA[2].title,
+        createdAt: NEWS_MOCK_DATA[2].createAt,
+        thumbnail: NEWS_MOCK_DATA[2].thumbnail,
+        link: `/tin-tuc/${NEWS_MOCK_DATA[2].slug}`
     },
     {
-        id: 4,
-        name: 'Đồng Cừu Suối Tiên',
-        createdAt: '05 Tháng 6, 2025',
-        thumbnail: '/homepage/news-dong-cuu.jpg',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        id: NEWS_MOCK_DATA[0].id,
+        name: NEWS_MOCK_DATA[0].title,
+        createdAt: NEWS_MOCK_DATA[0].createAt,
+        thumbnail: NEWS_MOCK_DATA[0].thumbnail,
+        link: `/tin-tuc/${NEWS_MOCK_DATA[0].slug}`
     },
 ]
 
@@ -156,15 +157,15 @@ export default function AppFooter() {
                 <div className="md:space-y-4 space-y-1 px-2 flex flex-col">
                     <h3 className="font-bold text-lg py-2">Tour Nổi Bật</h3>
                     {HOT_TOURS.map(item =>
-                        <a key={item.id} href={item.link} className="truncate">{item.name}</a>
+                        <a key={item.id} href={`/tour/${item.link}`} className="truncate">{item.name}</a>
                     )}
                 </div>
                 <div className="space-y-4 px-2 w-full">
                     <h3 className="font-bold text-lg">
                         Tin Tức Mới Nhất
                     </h3>
-                    {LASTEST_NEWS.map(item =>
-                        <div key={item.id} className="w-full">
+                    {LASTEST_NEWS.map((item,idx) =>
+                        <div key={idx} className="w-full">
                             <Link href={item.link} className="w-full flex">
                                 <div className="relative w-1/3 aspect-[2/1]">
                                     <Image

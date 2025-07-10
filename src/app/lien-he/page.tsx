@@ -11,7 +11,10 @@ export default function LienHe() {
                     Điện thoại: 084 246 6868<br />
                     Hotline: 091 494 3366
                 </p>
-                <a href="#" className="hover:underline hover:text-blue-400">viettriptour79@gmail.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=viettriptour79@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline hover:text-blue-400">viettriptour79@gmail.com</a>
             </div>
             <div className="text-center space-y-4 p-5 md:w-1/3">
                 <h2 className="font-bold">Ghé thăm văn phòng chúng tôi</h2>
@@ -25,7 +28,9 @@ export default function LienHe() {
                 <p>
                     Nếu bạn quan tâm đến việc trở thành đối tác, liên hệ với chúng tôi qua mail.
                 </p>
-                <a href="#" className="hover:underline hover:text-blue-400">viettriptour79@gmail.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=viettriptour79@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer" className="hover:underline hover:text-blue-400">viettriptour79@gmail.com</a>
             </div>
         </div>
     </div>

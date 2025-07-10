@@ -32,7 +32,7 @@ export default async function TourDetail({ params }: { params: Params }) {
                     <div className="md:flex block space-x-2 pb-4">
                         <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/">Trang chủ </Link>
                         <span>/</span>
-                        <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/hotel">Tour Nha Trang</Link>
+                        <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/tour">Tour Nha Trang</Link>
                         <span>/</span>
                         <p>{tour.name}</p>
                     </div>

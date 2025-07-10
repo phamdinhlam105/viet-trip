@@ -202,7 +202,7 @@ Website: <a href="#" style="color: #1d4ed8; text-decoration: underline;" target=
     <p>Theo ông <strong>Nguyễn Quang Thắng</strong>, Phó Chủ tịch thường trực Hiệp hội Du lịch Nha Trang – Khánh Hòa, việc phát triển sản phẩm du thuyền không chỉ nâng tầm chất lượng dịch vụ, mà còn phù hợp với du lịch bền vững, hạn chế tác động đến môi trường so với các loại hình đông người, ồn ào.</p>
 
     <figure>
-      <img src="/news/4-tieng-trai-nghiem/4-tieng-trai-nghiem-top.png" alt="Hoàng hôn trên vịnh Nha Trang">
+      <img src="/news/4-tieng-trai-nghiem/4-tieng-trai-nghiem-10.png" alt="Hoàng hôn trên vịnh Nha Trang">
     </figure>
 
     <p>19h: Du thuyền đi qua đường ven biển Trần Phú, du khách có thể ngắm cảnh thành phố lên đèn trước khi kết thúc tour.</p>
