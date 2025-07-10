@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Viettrip Tourist",
-  description: "Trung tâm du lịch Viet Trip Tourist",
+  description: "Lữ Hành Quốc Tế Việt Trip",
 
 };
 
