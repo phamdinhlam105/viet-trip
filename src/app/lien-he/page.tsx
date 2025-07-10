@@ -21,7 +21,7 @@ export default function LienHe() {
                 <p>
                     135/8 Nguyễn Thái Học, Nha Trang, Khánh Hòa
                 </p>
-                <a href="#" className="hover:underline hover:text-blue-400">Bản đồ chỉ dẫn</a>
+                <a href="https://maps.app.goo.gl/FpscPdFpRitr6i359" className="hover:underline hover:text-blue-400">Bản đồ chỉ dẫn</a>
             </div>
             <div className="text-center space-y-4 p-5 md:w-1/3">
                 <h2 className="font-bold">Liên hệ làm đối tác ?</h2>
