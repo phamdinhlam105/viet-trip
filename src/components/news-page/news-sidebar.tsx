@@ -7,13 +7,13 @@ const LASTEST_NEWS = [
     },
     {
         id: 2,
-        title: 'Đồng Cừu Suối Tiên',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: 'ngam-vinh-nha-trang-tu-du-thuyen-khong-con-xa-xi-khach-viet-chuong',
+        title: 'Ngắm vịnh Nha Trang từ du thuyền không còn xa xỉ, khách Việt chuộng',
     },
     {
         id: 3,
-        title: 'Suối Hoa Lan - Điểm Đến Kỳ Thú',
-        link: '/tin-tuc/11-dia-diem-du-lich-nhat-ban-dep-nhat-mua-he-thang-7-8'
+        link: '4-tieng-trai-nghiem-ngam-vinh-nha-trang-tren-du-thuyen',
+        title: '4 tiếng trải nghiệm ngắm vịnh Nha Trang trên du thuyền',
     },
     {
         id: 4,

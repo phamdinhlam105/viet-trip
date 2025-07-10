@@ -98,7 +98,7 @@ export default function AppFooter() {
             <div className=" my-3 w-[250px] bg-white h-[4px]">
             </div>
             <p className="md:text-lg text-sm text-center font-semibold">
-                Dối Tác Chúng Tôi Bao Gồm Các Công Ty Du Lịch, Lữ Hành, Khách Sạn...
+                Đối Tác Chúng Tôi Bao Gồm Các Công Ty Du Lịch, Lữ Hành, Khách Sạn...
             </p>
             <div className="grid grid-cols-6 gap-4 justify-center px-2 hidden sm:grid">
                 {COOP.map(item =>

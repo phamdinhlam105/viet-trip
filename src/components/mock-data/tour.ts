@@ -103,7 +103,7 @@ export const TOUR_MOCK_DATA = [
         name: 'Tour 3 Đảo Cano',
         slug: 'tour-3-dao-cano',
         description: 'Trải nghiệm một ngày trọn vẹn cùng Đan Phát Tourist khám phá vẻ đẹp biển đảo Nha Trang. Tour đưa bạn đến Hòn Mun – khu bảo tồn biển lớn nhất Việt Nam để lặn ngắm san hô rực rỡ, thưởng thức hải sản tươi ngon tại Làng Chài và thư giãn tại Bãi Tranh với làn nước trong xanh cùng nhiều trò chơi biển hấp dẫn. Lịch trình hợp lý, dịch vụ chu đáo – lựa chọn lý tưởng cho chuyến đi đầy kỷ niệm!',
-        price: '450000',
+        price: '700000',
         startingPlace: 'Nha Trang',
         thumbnail: '/homepage/tour.jpg',
         gallery: ["/tour/lang-chai.jpg", "/tour/hon-mun.jpg", "/homepage/tour.jpg", "/homepage/tour.jpg", "/tour/lang-chai.jpg"],

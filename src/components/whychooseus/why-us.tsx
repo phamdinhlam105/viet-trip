@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem} from "../ui/carousel";
 const WHY_CHOOSE_US = [
     {
         id: 1,
-        title: 'Kinh nghiệm trên 12 năm',
+        title: 'Kinh nghiệm trên 20 năm',
         content: 'Chúng tôi là Công ty tổ chức và điều hành Tour du lịch trực tiếp Uy Tín và Chuyên Nghiệp tại Nha Trang.'
     },
     {
