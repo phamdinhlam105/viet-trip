@@ -15,11 +15,11 @@ export default function AboutUs() {
                 <span className="block mb-2" />
                 Công ty TNHH Lữ Hành Quốc Tế Việt Trip
                 <span className="block mb-2" />
-                🏢 135/8 Nguyễn Thái Học, Vạn Thạnh, Nha Trang, Khánh Hòa
+                🏢 135/8 Nguyễn Thái Học,  Nha Trang, Khánh Hòa
                 <span className="block mb-2" />
                 📞 091 494 3366 - 084 246 6868
                 <span className="block mb-2" />
-                ✉️ nhatrangdulich.vn@gmail.com
+                ✉️ viettriptour79@gmail.com
                 <span className="block mb-2" />
                 🌐 www.viettriptourist.com
                 <span className="block mb-2" />

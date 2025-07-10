@@ -16,7 +16,7 @@ export default function NavigationBar() {
     return <nav className="w-full h-28 shadow-md fixed top-0 z-10 bg-white">
         <div className="py-2 px-10 bg-black text-white items-center flex justify-between">
             <div className="flex space-x-4 items-center">
-                <Phone /> <span>084 246 6868</span>
+                <Phone /> <span>091 494 3366</span>
             </div>
             <div className="flex space-x-4 items-center text-md">
                 <MapPin /> <span>135/8 Nguyễn Thái Học, Nha Trang, Khánh Hoà</span>

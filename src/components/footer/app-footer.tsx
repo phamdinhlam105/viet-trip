@@ -138,14 +138,13 @@ export default function AppFooter() {
                     </h3>
                     <p className="md:leading-12 leading-8">
 
-                        135/8 Nguyễn Thái Học, Vạn Thạnh, TP. Nha Trang, Khánh Hoà<br />
+                        135/8 Nguyễn Thái Học, Nha Trang, Khánh Hoà<br />
                         091 494 3366 - 084 246 6868<br />
-                        nhatrangdulich.vn@gmail.com<br />
+                        viettriptour79@gmail.com<br />
                         www.viettriptourist.com<br />
                         Khám Phá. Trải Nghiệm. Tận hưởng.<br />
                         Viet Trip Tourist - Your Journey, Our Passion!<br />
                         135/8 Nguyễn Thái Học, TP. Nha Trang, Khánh Hoà<br />
-                        084 246 6868
                     </p>
                     <div className="flex space-x-4">
                         <Facebook />

@@ -8,24 +8,6 @@ import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-galler
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-const HOTEL: HotelDetail = {
-    id: '1',
-    slug: "queen-ann-nha-trang-hotel",
-    name: "Queen Ann Nha Trang Hotel",
-    description: "Khách sạn Queen Ann Nha Trang xinh đẹp VIP pro và những dịch vụ tuyệt vời.",
-    price: '2.990.000',
-    images: ["/hotel/queen-ann.jpg", "/hotel/queen-ann-2.jpg", "/hotel/queen-ann-3.jpg", "/hotel/queen-ann.jpg", "/hotel/queen-ann.jpg"],
-    additionalDetail: {
-        mainFeature: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        address: '100 Trần Phú, P. Lộc Thọ, TP.Nha Trang, Khánh Hòa',
-        food: 'Buffet sáng',
-        suitablePerson: 'Người lớn tuổi, Cặp đôi, Gia đình nhiều thế hệ, Thanh niên, Trẻ em',
-        openTime: '6:00 - 23:00',
-        transportation: 'Xe du lịch, Cano',
-        promotion: 'Quầy bar mini tại phòng'
-    },
-}
-
 export const generateStaticParams = () => {
     return HOTEL_MOCK_DATA.map(item => ({
         slug: item.slug,
@@ -46,7 +28,7 @@ export default async function HotelDetail({ params }: { params: Params }) {
                 <div className="md:flex block space-x-2 pb-4">
                     <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/">Trang chủ </Link><span>/</span>
                     <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/hotel">Khách sạn</Link><span>/</span>
-                    <p>{HOTEL.name}</p>
+                    <p>{hotel.name}</p>
                 </div>
                 <h1 className="text-3xl font-bold mb-4">{hotel.name}</h1>
                 <TourDetailGallery gallery={hotel.images} />

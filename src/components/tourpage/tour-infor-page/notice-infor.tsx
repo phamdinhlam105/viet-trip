@@ -34,7 +34,7 @@ const specialIssue = `<ul style="padding-left: 5px;">
 </ul>
 `
 const registerCondition = `<ul style="padding-left: 5px;">
-  <li>- Khi đăng ký vui lòng cung cấp giấy tờ tùy thân tất cả người đi: Chứng minh nhân dân/Hộ chiếu (Passport)/Giấy khai sinh (trẻ em dưới 14 tuổi). Trong trường hợp đăng ký trực tuyến qua www.travel.com.vn vui lòng nhập tên chính xác theo thứ tự: Họ/tên lót/tên xuất vé máy bay. Quý khách khi đăng ký cung cấp tên theo giấy tờ tùy thân nào, khi đi tour mang theo giấy tờ tùy thân đó.</li>
+  <li>- Khi đăng ký vui lòng cung cấp giấy tờ tùy thân tất cả người đi: Chứng minh nhân dân/Hộ chiếu (Passport)/Giấy khai sinh (trẻ em dưới 14 tuổi). Trong trường hợp đăng ký trực tuyến qua www.viettriptourist.com vui lòng nhập tên chính xác theo thứ tự: Họ/tên lót/tên xuất vé máy bay. Quý khách khi đăng ký cung cấp tên theo giấy tờ tùy thân nào, khi đi tour mang theo giấy tờ tùy thân đó.</li>
   <li>- <strong>Quy định giấy tờ tùy thân khi đi tour:</strong>
     <ul style="margin-left: 20px; list-style-type: disc;">
       <li> <strong>Khách quốc tịch Việt Nam:</strong> Trẻ em dưới 14 tuổi: Giấy khai sinh bản chính/Hộ chiếu bản chính còn giá trị sử dụng. Trẻ em từ 14 tuổi trở lên và Người lớn: CMND/ Hộ chiếu bản chính còn giá trị sử dụng.</li>
@@ -70,7 +70,7 @@ const registerCondition = `<ul style="padding-left: 5px;">
 const contact = `<p><strong>Mọi chi tiết vui lòng liên hệ:</strong></p>
 <ul style="padding-left: 5px;">
   <li>- Công ty TNHH Lữ Hành Quốc Tế Viet Trip</li>
-  <li>- 135/8 Nguyễn Thái Học, TP. Nha Trang, Khánh Hoà</li>
+  <li>- 135/8 Nguyễn Thái Học, Nha Trang, Khánh Hoà</li>
   <li>- Điện thoại: 091 494 3366 - 084 246 6868</li>
 </ul>
 <p style="text-align: center;"><strong>VIETTRIP TOURIST KÍNH CHÚC QUÝ KHÁCH MỘT CHUYẾN DU LỊCH VUI VẺ!</strong></p>
