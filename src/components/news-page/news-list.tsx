@@ -3,19 +3,13 @@ import { useMemo, useState } from "react";
 import NewsItem from "./news-item";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Button } from "../ui/button";
+import { Post } from "../models/app-models";
 
 
 const ITEMS_PER_PAGE = 9;
 
 export default function NewsList({ newsList }: {
-    newsList: {
-        id: number,
-        title: string,
-        createAt: string,
-        description: string,
-        href: string,
-        thumbnail: string
-    }[]
+    newsList: Post[]
 }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
@@ -27,8 +21,8 @@ export default function NewsList({ newsList }: {
                 news.title.toLowerCase().includes(searchTerm.toLowerCase())
             )
             .sort((a, b) => {
-                const dateA = new Date(a.createAt || '');
-                const dateB = new Date(b.createAt || '');
+                const dateA = new Date(a.updatedAt || '');
+                const dateB = new Date(b.updatedAt || '');
                 return sortOrder === 'asc' ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
             });
     }, [searchTerm, sortOrder, newsList]);

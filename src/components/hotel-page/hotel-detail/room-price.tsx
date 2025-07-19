@@ -5,7 +5,7 @@ export default function RoomPriceTable({ roomDetails }:{
         id:string,
         name:string,
         included:string,
-        bedInfo:string,
+        capacity:string,
         price:string
     }[]
 }) {
@@ -24,7 +24,7 @@ export default function RoomPriceTable({ roomDetails }:{
     {roomDetails.map(room => (
       <tr key={room.id}>
         <td className="border px-4 py-2 text-sm font-semibold">{room.name}</td>
-        <td className="border px-4 py-2 text-sm">{room.bedInfo}</td>
+        <td className="border px-4 py-2 text-sm">{room.capacity}</td>
         <td className="border px-4 py-2 text-sm">{room.included}</td>
         <td className="border px-4 py-2 font-semibold text-red-600 text-sm">
            {parseInt(room.price).toLocaleString('vi-VN')}

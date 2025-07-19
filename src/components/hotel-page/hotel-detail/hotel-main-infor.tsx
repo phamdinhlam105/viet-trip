@@ -9,7 +9,7 @@ export default function HotelMainInformation({ description, content, ultilities,
         name: string,
         included: string,
         price: string,
-        bedInfo: string
+        capacity: string
     }[]
 }) {
 

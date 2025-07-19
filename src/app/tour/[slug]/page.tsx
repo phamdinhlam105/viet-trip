@@ -1,4 +1,5 @@
-import { TOUR_MOCK_DATA } from "@/components/mock-data/tour";
+import { getTourBySlug } from "@/components/api/tour-api";
+import { TourDetail } from "@/components/models/app-models";
 import TourMainInformation from "@/components/tourpage/tour-infor-page/main-infor";
 import NoticeInformation from "@/components/tourpage/tour-infor-page/notice-infor";
 import RelatedTour from "@/components/tourpage/tour-infor-page/related-tour";
@@ -6,50 +7,88 @@ import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-galler
 import TourSchedule from "@/components/tourpage/tour-infor-page/tour-schedule";
 import TourSidebarOffer from "@/components/tourpage/tour-infor-page/tour-side-offer";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
-export const generateStaticParams = () => {
-    return TOUR_MOCK_DATA.map(item => ({
-        slug: item.slug,
-    }));
-};
-type Params = Promise<{ slug: string }>;
+export default async function TourDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const [currentTour, setCurrentTour] = useState<TourDetail>({
+    id: "",
+    name: "",
+    slug: "",
+    description: "",
+    schedule: "",
+    scheduleDetail: "",
+    price: "",
+    thumbnail: "",
+    images: [],
+    startingPlace: "",
+    tourDetail: {
+      id: "",
+      location: "",
+      suitablePerson: "",
+      idealTime: "",
+      transportation: "",
+      promotion: "",
+      food: "",
+    },
+  });
+  const [isLoading, setIsLoading] = useState(true);
 
-export default async function TourDetail({ params }: { params: Params }) {
-    const { slug } = await params;
+  useEffect(() => {
+    const fetchTours = async (slug: string) => {
+      const tours = await getTourBySlug(slug);
+      if (tours) {
+        setCurrentTour(tours);
+        setIsLoading(false);
+      } else return notFound();
+    };
 
-    // 🔒 Dữ liệu thực tế sẽ được thay vào đây
-    const tour = TOUR_MOCK_DATA.find(item => item.slug === slug) ?? null;
-
-    if (!tour) {
-        return notFound();
-    }
-
-    return (
-        <div className="md:px-[10%] md:pt-28 pt-20">
-            <div className="px-2 py-10 md:flex space-x-4">
-                <div className="md:w-3/4 w-full">
-                    <div className="md:flex block space-x-2 pb-4">
-                        <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/">Trang chủ </Link>
-                        <span>/</span>
-                        <Link className="hover:underline hover:text-blue-400 hover:font-semibold" href="/tour">Tour Nha Trang</Link>
-                        <span>/</span>
-                        <p>{tour.name}</p>
-                    </div>
-                    <h1 className="text-3xl font-bold mb-4">{tour.name}</h1>
-                    <TourDetailGallery gallery={tour.gallery} />
-                    <div className="md:hidden py-2">
-                        <TourSidebarOffer {...tour} />
-                    </div>
-                    <TourMainInformation description={tour.description} {...tour.tourDetail} />
-                    <TourSchedule schedule={tour.schedule} scheduleDetail={tour.scheduleDetail} />
-                    <NoticeInformation {...tour.noticeInformation} />
-                </div>
-                <div className="md:w-1/4 md:relative sm:block hidden">
-                    <TourSidebarOffer id={tour.id} price={tour.price} />
-                </div>
-            </div>
-            <RelatedTour id={tour.id} />
+    fetchTours(slug);
+  }, []);
+  return (
+    <div className="md:px-[10%] md:pt-28 pt-20">
+      <div className="px-2 py-10 md:flex space-x-4">
+        <div className="md:w-3/4 w-full">
+          <div className="md:flex block space-x-2 pb-4">
+            <Link
+              className="hover:underline hover:text-blue-400 hover:font-semibold"
+              href="/"
+            >
+              Trang chủ{" "}
+            </Link>
+            <span>/</span>
+            <Link
+              className="hover:underline hover:text-blue-400 hover:font-semibold"
+              href="/tour"
+            >
+              Tour Nha Trang
+            </Link>
+            <span>/</span>
+            <p>{currentTour.name}</p>
+          </div>
+          <h1 className="text-3xl font-bold mb-4">{currentTour.name}</h1>
+          <TourDetailGallery gallery={currentTour.images} />
+          <div className="md:hidden py-2">
+            <TourSidebarOffer {...currentTour} />
+          </div>
+          <TourMainInformation
+            description={currentTour.description}
+            {...currentTour.tourDetail}
+          />
+          <TourSchedule
+            schedule={currentTour.schedule}
+            scheduleDetail={currentTour.scheduleDetail}
+          />
+          <NoticeInformation {...currentTour.noticeInformation} />
         </div>
-    );
+        <div className="md:w-1/4 md:relative sm:block hidden">
+          <TourSidebarOffer id={currentTour.id} price={currentTour.price} />
+        </div>
+      </div>
+      <RelatedTour id={currentTour.id} />
+    </div>
+  );
 }

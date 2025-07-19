@@ -1,52 +1,87 @@
-
 export type Hotel = {
-    id: string;
-    name: string;
-    address: string;
-    star: number;
-    price: string;
-    discountPrice?: string;
-    link:string;
-    type: 'Khách sạn' | 'Biệt thự' | 'Khu nghỉ dưỡng';
-    thumbnail: string;
-};
-
-export type Tour = {
-    id: string;
-    name: string;
-    slug: string;
-    description: string;
-    price: string;
-    images: string[];
-    additionalDetail:
-    {
-        mainFeature: string;
-        location: string;
-        food: string;
-        suitablePerson: string;
-        idealTime: string;
-        transportation: string;
-        promotion: string;
-    },
-    schedule: string[],
-    scheduleDetail: string,
+  id: string;
+  name: string;
+  slug: string;
+  address: string;
+  star: number;
+  description: string;
+  price: string;
+  promotionPrice?: string;
+  thumbnail: string;
 };
 
 export type HotelDetail = {
+  id: string;
+  name: string;
+  slug: string;
+  address: string;
+  star: number;
+  description: string;
+  content: string;
+  ultilities: string;
+  price: string;
+  promotionPrice?: string;
+  thumbnail: string;
+  images: string[];
+  rule: string;
+  roomDetails: {
     id: string;
+    hotelId: string;
     name: string;
-    slug: string;
-    description: string;
+    capacity: string;
     price: string;
-    images: string[];
-    additionalDetail:
-    {
-        mainFeature: string;
-        address: string;
-        food: string;
-        suitablePerson: string;
-        openTime: string;
-        transportation: string;
-        promotion: string;
-    },
+    included: string;
+  }[];
+};
+
+export type Tour = {
+  id: string;
+  name: string;
+  slug: string;
+  thumbnail: string;
+  description: string;
+  price: string;
+  startingPlace: string;
+};
+
+export type TourDetail = {
+  id: string;
+  name: string;
+  slug: string;
+  thumbnail: string;
+  description: string;
+  price: string;
+  startingPlace: string;
+  schedule: string;
+  scheduleDetail: string;
+  images: string[];
+  tourDetail: {
+    id: string;
+    location: string;
+    food: string;
+    suitablePerson: string;
+    idealTime: string;
+    transportation: string;
+    promotion: string;
+  };
+};
+
+export type Post={
+    id:string;
+    title:string;
+    description:string;
+    updatedAt:string;
+    slug:string;
+    thumbnail:string;
+}
+
+export type PostDetail={
+    id:string;
+    title:string;
+    description:string;
+    slug:string;
+    content:string;
+    thumbnail:string;
+    updatedAt:string;
+    author:string;
 }
