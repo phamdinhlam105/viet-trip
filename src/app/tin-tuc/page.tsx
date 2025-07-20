@@ -21,10 +21,11 @@ export default function NewsPage() {
             else
                 toast.error("Không thể tải dữ liệu")
         }
-    })
+        fetchData();
+    },[])
 
     return <div className="md:pt-28 pt-20">
         <TopBanner breadcrumbs={[{ title: 'Tin tức', slug: '/tin-tuc' }]} />
-        <NewsList newsList={data} />
+        {isLoading?"Đang tải dữ liệu":<NewsList newsList={data} />}
     </div>
 }

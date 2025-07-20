@@ -42,7 +42,7 @@ export default function HotelList({
 
   const sortedList = [...listdata].sort((a, b) => {
     const normalizePrice = (value: string | undefined) =>
-      parseInt((value || "0").replace(/[.,]/g, ""));
+      parseInt((value ?? "0").toString().replace(/[.,]/g, ""));
 
     const priceA = normalizePrice(a.promotionPrice ?? a.price);
     const priceB = normalizePrice(b.promotionPrice ?? b.price);
@@ -121,6 +121,7 @@ export default function HotelList({
                   src={hotel.thumbnail}
                   alt="Ảnh khách sạn"
                   fill
+                  unoptimized
                 />
               </div>
             </div>

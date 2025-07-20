@@ -6,9 +6,10 @@ export type BookingRequest= {
     note?:string;
     numberOfPerson:number;
     bookingDate:string;
-    tourId?:string;
-    hotelId?:string;
-    comboId?:string;
+    tourId:string[];
+    hotelId:string[];
+    comboId:string[];
+    email?:string;
 }
 
 export const newBooking = async(request: BookingRequest)=>{
@@ -24,9 +25,7 @@ export const newBooking = async(request: BookingRequest)=>{
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
-    const data = await response.json();
-    return data;
+    return true;
   } catch (error) {
     return null;
   }

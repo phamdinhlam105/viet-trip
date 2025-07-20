@@ -21,7 +21,7 @@ export default function TourItem({ id, name, description, startingPlace, price, 
     return <div className="w-full flex flex-col justify-between bg-white rounded-lg border border-gray-200 space-y-4 pb-4 shadow-lg">
         <Link href={`/tour/${slug}`}>
             <div className='w-full aspect-[3/2] relative'>
-                <Image className=' rounded-lg' src={thumbnail} alt="Ảnh đại diện tour" fill />
+                <Image className=' rounded-lg' src={thumbnail} alt="Ảnh đại diện tour" fill unoptimized/>
             </div>
 
             <div className='space-y-2 px-4 py-4'>

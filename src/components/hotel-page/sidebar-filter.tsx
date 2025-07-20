@@ -3,7 +3,7 @@
 import { Search, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const TYPES = ["Khách sạn", "Biệt thự", "Khu nghỉ dưỡng"];
+const TYPES = ["Hotel", "Biệt thự", "Khu nghỉ dưỡng"];
 const STARS = [5, 4, 3, 2, 1];
 
 export default function HotelSideBar({
@@ -43,7 +43,7 @@ export default function HotelSideBar({
         </div>
         <div>
           <h3 className="font-bold mb-2">Loại hình chỗ ở</h3>
-          {TYPES.map((type, idx) => (
+          {TYPES.map((type) => (
             <label key={type} className="flex items-center space-x-2">
               <input
                 type="checkbox"

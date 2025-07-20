@@ -21,7 +21,7 @@ export default function NoticeCollapFixed({ title, content }: { title: string, c
             </Button>
         </CollapsibleTrigger>
         <CollapsibleContent className="flex flex-col gap-2">
-            <div className="rounded-md border px-4 py-2 bg-gray-200 mt-2 space-y-2" dangerouslySetInnerHTML={{__html:content}} />
+            <div className="rounded-md border px-4 py-2 bg-gray-200 mt-2 space-y-2 prose" dangerouslySetInnerHTML={{__html:content}} />
         </CollapsibleContent>
     </Collapsible>
 }

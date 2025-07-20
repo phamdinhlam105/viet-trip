@@ -85,3 +85,13 @@ export type PostDetail={
     updatedAt:string;
     author:string;
 }
+
+export type Combo={
+  id:string;
+  name:string;
+  slug:string;
+  price:string;
+  tourId?:string;
+  hotelId?:string;
+  applyDate:string;
+}

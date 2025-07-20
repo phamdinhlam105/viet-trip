@@ -1,3 +1,4 @@
+"use client";
 import { getTourBySlug } from "@/components/api/tour-api";
 import { TourDetail } from "@/components/models/app-models";
 import TourMainInformation from "@/components/tourpage/tour-infor-page/main-infor";
@@ -11,7 +12,7 @@ import { notFound, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default async function TourDetailPage() {
+export default function TourDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const [currentTour, setCurrentTour] = useState<TourDetail>({
@@ -69,20 +70,26 @@ export default async function TourDetailPage() {
             <span>/</span>
             <p>{currentTour.name}</p>
           </div>
-          <h1 className="text-3xl font-bold mb-4">{currentTour.name}</h1>
-          <TourDetailGallery gallery={currentTour.images} />
-          <div className="md:hidden py-2">
-            <TourSidebarOffer {...currentTour} />
-          </div>
-          <TourMainInformation
-            description={currentTour.description}
-            {...currentTour.tourDetail}
-          />
-          <TourSchedule
-            schedule={currentTour.schedule}
-            scheduleDetail={currentTour.scheduleDetail}
-          />
-          <NoticeInformation {...currentTour.noticeInformation} />
+          {isLoading ? (
+            "Đang tải dữ liệu"
+          ) : (
+            <>
+              <h1 className="text-3xl font-bold mb-4">{currentTour.name}</h1>
+              <TourDetailGallery gallery={currentTour.images} />
+              <div className="md:hidden py-2">
+                <TourSidebarOffer {...currentTour} />
+              </div>
+              <TourMainInformation
+                description={currentTour.description}
+                {...currentTour.tourDetail}
+              />
+              <TourSchedule
+                schedule={currentTour.schedule}
+                scheduleDetail={currentTour.scheduleDetail}
+              />
+              <NoticeInformation />
+            </>
+          )}
         </div>
         <div className="md:w-1/4 md:relative sm:block hidden">
           <TourSidebarOffer id={currentTour.id} price={currentTour.price} />

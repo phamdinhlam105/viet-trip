@@ -24,6 +24,7 @@ export default function HotelItem({ id, name, description, address, price, thumb
                     src={thumbnail}
                     alt="Ảnh đại diện khách sạn"
                     fill
+                    unoptimized
                 />
             </div>
             <div className='space-y-2 px-4 py-4'>

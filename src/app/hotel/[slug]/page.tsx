@@ -10,7 +10,7 @@ import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default async function HotelDetailPage() {
+export default function HotelDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const [currentHotel, setCurrentHotel] = useState<HotelDetail>({
@@ -32,8 +32,10 @@ export default async function HotelDetailPage() {
   useEffect(() => {
     const fetchData = async (slug: string) => {
       const result = await getHotelBySlug(slug);
-      if (result) setCurrentHotel(result);
-      else return notFound();
+      if (result) {
+        setCurrentHotel(result);
+        setIsLoading(false);
+      } else return notFound();
     };
     fetchData(slug);
   }, []);
@@ -63,13 +65,21 @@ export default async function HotelDetailPage() {
                 <span>/</span>
                 <p>{currentHotel.name}</p>
               </div>
-              <h1 className="text-3xl font-bold mb-4">{currentHotel.name}</h1>
-              <TourDetailGallery gallery={currentHotel.images} />
-              <div className="md:hidden py-2">
-                <HotelSidebarOffer {...currentHotel} />
-              </div>
-              <HotelMainInformation {...currentHotel} />
-              <HotelRule rule={currentHotel.rule} />
+              {isLoading ? (
+                "Đang tải dữ liệu"
+              ) : (
+                <>
+                  <h1 className="text-3xl font-bold mb-4">
+                    {currentHotel.name}
+                  </h1>
+                  <TourDetailGallery gallery={currentHotel.images} />
+                  <div className="md:hidden py-2">
+                    <HotelSidebarOffer {...currentHotel} />
+                  </div>
+                  <HotelMainInformation {...currentHotel} />
+                  <HotelRule rule={currentHotel.rule} />
+                </>
+              )}
             </div>
             <div className="md:w-1/4 md:relative sm:block hidden">
               <HotelSidebarOffer

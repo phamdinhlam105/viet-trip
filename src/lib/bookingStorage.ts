@@ -27,17 +27,3 @@ export const addBookingItem = (newItem: { id: string; type: string }) => {
   const updated = [...existing, newItem];
   localStorage.setItem("booking_items", JSON.stringify(updated));
 };
-
-export const getTourById = (id: string) => {
-  return tours.find(t => t.id === id);
-};
-
-// ✅ Hàm lấy hotel theo id
-export const getHotelById = (id: string) => {
-  return hotels.find(h => h.id === id);
-};
-
-// ✅ Hàm lấy combo theo id
-export const getComboById = (id: string) => {
-  return combos.find(c => c.id === id);
-};

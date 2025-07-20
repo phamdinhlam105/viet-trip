@@ -33,6 +33,7 @@ export default function TourDetailGallery({ gallery }: Props) {
                 src={img}
                 alt={`Hình ${index + 1}`}
                 fill
+                unoptimized
               />
             </Button>
           );
@@ -53,6 +54,7 @@ export default function TourDetailGallery({ gallery }: Props) {
           width={800}
           height={600}
           className="w-full h-full rounded-md shadow-md"
+          unoptimized
         />
       </div>
     </div>

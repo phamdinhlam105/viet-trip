@@ -35,6 +35,7 @@ export default function DetailPageGallery({ gallery }: { gallery: string[] }) {
                             src={gallery[selectedImage]}
                             alt="Ảnh lớn"
                             fill
+                            unoptimized
                         />
                     </div>
                 </div>
@@ -46,6 +47,7 @@ export default function DetailPageGallery({ gallery }: { gallery: string[] }) {
                                 src={img}
                                 alt={`Thumbnail ${idx}`}
                                 fill
+                                unoptimized
                                 onClick={() => setSelectedImage(idx)}
                                 className={`cursor-pointer rounded-md border-2 ${selectedImage === idx ? 'border-blue-500' : 'border-transparent'
                                     }`}

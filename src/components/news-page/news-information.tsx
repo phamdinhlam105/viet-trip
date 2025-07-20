@@ -27,7 +27,7 @@ export default function NewsInformtion({
       <h1 className="text-2xl font-bold">{title}</h1>
       <div className="bg-gray-100 p-6 rounded-lg">
         <div className="rounded-lg space-y-2 bg-gray-200 px-3 py-5">
-          <p className="text-sm">{updatedAt}</p>
+          <p className="text-sm">{new Date(updatedAt).toLocaleDateString("vi-VN")}</p>
           <p className="italic font-semibold text-sm">{description}</p>
         </div>
         <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />

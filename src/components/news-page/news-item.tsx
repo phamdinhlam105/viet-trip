@@ -26,7 +26,7 @@ export default function NewsItem({
         </div>
 
         <div className="space-y-2 px-4 py-4">
-          <p className="text-gray-600 text-sm">{updatedAt}</p>
+          <p className="text-gray-600 text-sm">{new Date(updatedAt).toLocaleDateString("vi-VN")}</p>
           <h3 className="text-md font-bold">{title}</h3>
           <p className="text-sm line-clamp-4">{description}</p>
         </div>
