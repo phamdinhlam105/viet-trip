@@ -10,7 +10,6 @@ import TourSidebarOffer from "@/components/tourpage/tour-infor-page/tour-side-of
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 
 export default function TourDetailPage() {
   const params = useParams();
@@ -48,7 +47,7 @@ export default function TourDetailPage() {
     };
 
     fetchTours(slug);
-  }, []);
+  }, [slug]);
   return (
     <div className="md:px-[10%] md:pt-28 pt-20">
       <div className="px-2 py-10 md:flex space-x-4">

@@ -26,18 +26,18 @@ export default function ComboCard({
   const fetchCombo = async () => {
     const result = await getComboById(id);
     if (result) {
-      setTour(result);
+      setCombo(result);
       setIsLoading(false);
     }
   };
-  const fetchHotel = async (id: string) => {
-    const result = await getHotelById(id);
+  const fetchHotel = async (hotelId: string) => {
+    const result = await getHotelById(hotelId);
     if (result) {
-      setTour(result);
+      setHotel(result);
     }
   };
-  const fetchTour = async (id: string) => {
-    const result = await getTourById(id);
+  const fetchTour = async (tourId: string) => {
+    const result = await getTourById(tourId);
     if (result) {
       setTour(result);
     }

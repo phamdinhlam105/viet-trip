@@ -130,7 +130,7 @@ export default function AppFooter() {
           </div>
           <div className="md:space-y-4 space-y-1 px-2 flex flex-col">
             <h3 className="font-bold text-lg py-2">Tour Nổi Bật</h3>
-            {hotTour.slice(0,5).map((item) => (
+            {hotTour.slice(0, 5).map((item) => (
               <a key={item.id} href={`/tour/${item.slug}`} className="truncate">
                 {item.name}
               </a>
@@ -138,7 +138,7 @@ export default function AppFooter() {
           </div>
           <div className="space-y-4 px-2 w-full">
             <h3 className="font-bold text-lg">Tin Tức Mới Nhất</h3>
-            {recentNews.slice(0,5).map((item, idx) => (
+            {recentNews.slice(0, 5).map((item, idx) => (
               <div key={idx} className="w-full">
                 <Link href={`/tin-tuc/${item.slug}`} className="w-full flex">
                   <div className="relative w-1/3 aspect-[2/1]">
@@ -148,15 +148,26 @@ export default function AppFooter() {
                     <h3 className="text-lg font-semibold truncate">
                       {item.title}
                     </h3>
-                    <p className="text-sm truncate">{new Date(item.updatedAt).toLocaleDateString("vi-VN")}</p>
+                    <p className="text-sm truncate">
+                      {new Date(item.updatedAt).toLocaleDateString("vi-VN")}
+                    </p>
                   </div>
                 </Link>
               </div>
             ))}
           </div>
         </div>
-        <div>
+        <div className="flex items-center space-x-4">
           <span className="font-bold">Chứng Nhận:</span>
+          <Link href="http://online.gov.vn/Website/chi-tiet-134657?AspxAutoDetectCookieSupport=1">
+            <Image
+              src={"/homepage/bocongthuong.png"}
+              alt="Chứng nhận bộ công thương"
+              width={100}
+              height={100}
+              unoptimized
+            />
+          </Link>
         </div>
       </div>
 

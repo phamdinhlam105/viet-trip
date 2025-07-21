@@ -26,7 +26,7 @@ export const newBooking = async(request: BookingRequest)=>{
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     return true;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

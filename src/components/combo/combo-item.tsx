@@ -7,7 +7,6 @@ import TourBookingSheet from "../tour-booking/tour-booking-sheet";
 import { Button } from "../ui/button";
 import { addBookingItem } from "@/lib/bookingStorage";
 import { formatPrice } from "@/lib/formatPrice";
-import { Hotel, Tour } from "../models/app-models";
 
 export default function ComboItem({ id, arrival, departure, schedule, accommodation, transportation, price }: {
     id: string,
@@ -20,8 +19,6 @@ export default function ComboItem({ id, arrival, departure, schedule, accommodat
 }) {
 
     const [open, setOpen] = useState(false);
-    const [tour,setTour] = useState<Tour>();
-    const [hotel,setHotel] = useState<Hotel>();
 
     
 

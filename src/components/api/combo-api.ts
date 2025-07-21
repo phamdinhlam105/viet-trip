@@ -15,7 +15,7 @@ export const getAllCombo = async () => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -35,7 +35,7 @@ export const getComboById = async (id: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -55,7 +55,7 @@ export const getComboBySlug = async (slug: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };

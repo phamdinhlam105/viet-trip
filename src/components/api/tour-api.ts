@@ -16,7 +16,7 @@ export const getAllTour = async () => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -36,7 +36,7 @@ export const getTourById = async (id: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -56,7 +56,7 @@ export const getTourBySlug = async (slug: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -77,7 +77,7 @@ export const getNoticeInformation = async () => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };

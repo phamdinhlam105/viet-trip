@@ -1,6 +1,5 @@
 // lib/bookingStorage.ts
 
-import { combos, hotels, tours } from "@/components/tour-booking/mock-data";
 
 export const getBookingItems = () => {
   if (typeof window === "undefined") return [];

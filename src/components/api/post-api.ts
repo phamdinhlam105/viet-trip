@@ -16,7 +16,7 @@ export const getAllPost = async () => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -36,7 +36,7 @@ export const getPostById = async (id: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };
@@ -56,7 +56,7 @@ export const getPostBySlug = async (slug: string) => {
 
     const data = await response.json();
     return data;
-  } catch (error) {
+  } catch {
     return null;
   }
 };

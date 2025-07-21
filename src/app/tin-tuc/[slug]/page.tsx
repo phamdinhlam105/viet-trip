@@ -29,7 +29,7 @@ export default function NewsDetailPage() {
       } else return notFound();
     };
     fetchData(slug);
-  },[]);
+  },[slug]);
 
   return (
     <div className="md:flex md:px-[10%] px-2 pb-5 space-x-2 space-y-10 md:pt-40 pt-25">

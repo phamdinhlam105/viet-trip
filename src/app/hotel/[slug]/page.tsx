@@ -38,7 +38,7 @@ export default function HotelDetailPage() {
       } else return notFound();
     };
     fetchData(slug);
-  }, []);
+  }, [slug]);
 
   return (
     <div className="md:pt-28 pt-20">
