@@ -36,7 +36,7 @@ export default function TourItem({ id, name, description, startingPlace, price, 
             </div>
         </Link>
         <div className='flex justify-between items-center my-2 px-4'>
-            <p className='text-[#FF0000] font-bold md:text-lg'> {formatPrice(price)}</p>
+            <p className='text-[#FF0000] font-bold md:text-lg'> {formatPrice(parseInt(price).toString())}</p>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                     <Button className='w-1/2 text-md 

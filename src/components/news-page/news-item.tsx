@@ -22,6 +22,7 @@ export default function NewsItem({
             src={thumbnail}
             alt="Ảnh đại diện tour"
             fill
+            unoptimized
           />
         </div>
 

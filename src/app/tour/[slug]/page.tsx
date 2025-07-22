@@ -91,7 +91,7 @@ export default function TourDetailPage() {
           )}
         </div>
         <div className="md:w-1/4 md:relative sm:block hidden">
-          <TourSidebarOffer id={currentTour.id} price={currentTour.price} />
+          <TourSidebarOffer startingPlace={currentTour.startingPlace} id={currentTour.id} price={currentTour.price} />
         </div>
       </div>
       <RelatedTour id={currentTour.id} />

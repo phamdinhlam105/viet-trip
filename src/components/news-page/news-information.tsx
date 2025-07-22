@@ -30,7 +30,7 @@ export default function NewsInformtion({
           <p className="text-sm">{new Date(updatedAt).toLocaleDateString("vi-VN")}</p>
           <p className="italic font-semibold text-sm">{description}</p>
         </div>
-        <div className="prose" dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="space-y-4" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </div>
   );
