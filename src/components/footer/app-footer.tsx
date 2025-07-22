@@ -120,12 +120,21 @@ export default function AppFooter() {
               <br />
               135/8 Nguyễn Thái Học, TP. Nha Trang, Khánh Hoà
               <br />
+              <span><Link className="hover:underline" href={`/policy`}>Chính sách riêng tư</Link></span>
             </p>
             <div className="flex space-x-4">
-              <Facebook />
-              <Instagram />
+              <Link href={`https://www.facebook.com/VietTripTour`}>
+                <Facebook />
+              </Link>
+              <Link
+                href={`https://www.instagram.com/explore/locations/999947336875601/viet-trip-tourist/`}
+              >
+                <Instagram />
+              </Link>
               <Twitter />
-              <Youtube />
+              <Link href={`https://www.youtube.com/@Khuongxoaichanel`}>
+                <Youtube />
+              </Link>
             </div>
           </div>
           <div className="md:space-y-4 space-y-1 px-2 flex flex-col">
