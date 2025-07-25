@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
 
     return <div className="w-full px-2 md:px-[10%] space-y-2 py-8"
         style={{
-            backgroundImage: 'url("/homepage/why-choose-us-bg.png")',
+            backgroundImage: 'url("/homepage/why-choose-us.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
         }}>

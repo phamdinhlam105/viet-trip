@@ -66,32 +66,66 @@ export type TourDetail = {
   };
 };
 
-export type Post={
-    id:string;
-    title:string;
-    description:string;
-    updatedAt:string;
-    slug:string;
-    thumbnail:string;
-}
+export type Post = {
+  id: string;
+  title: string;
+  description: string;
+  updatedAt: string;
+  slug: string;
+  thumbnail: string;
+};
 
-export type PostDetail={
-    id:string;
-    title:string;
-    description:string;
-    slug:string;
-    content:string;
-    thumbnail:string;
-    updatedAt:string;
-    author:string;
-}
+export type PostDetail = {
+  id: string;
+  title: string;
+  description: string;
+  slug: string;
+  content: string;
+  thumbnail: string;
+  updatedAt: string;
+  author: string;
+};
 
-export type Combo={
-  id:string;
-  name:string;
-  slug:string;
-  price:string;
-  tourId?:string;
-  hotelId?:string;
-  applyDate:string;
-}
+export type Combo = {
+  id: string;
+  name: string;
+  slug: string;
+  price: string;
+  tourId?: string;
+  tourName?: string;
+  hotelId?: string;
+  hotelName?: string;
+  applyDate: string;
+  endDate: string;
+  transportation: string;
+  description: string;
+};
+
+export type ComboDetail = {
+  id: string;
+  name: string;
+  slug: string;
+  price: string;
+  applyDate: string;
+  endDate: string;
+  transportation: string;
+  description: string;
+  hotel: {
+    id: string;
+    name: string;
+    description: string;
+    ultilities: string;
+    address: string;
+    star: number;
+    images: string[];
+  };
+  tour: {
+    id: string;
+    name: string;
+    description: string;
+    schedule: string;
+    scheduleDetail: string;
+    startingPlace: string;
+    images: string[];
+  };
+};

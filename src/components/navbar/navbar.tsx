@@ -1,6 +1,6 @@
 "use client"
 
-import { MapPin, Phone, Search } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import Logo from "./logo";
 import { NavBarStructure } from "./navbar-stucture";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import TourBookingSheet from "../tour-booking/tour-booking-sheet";
 import { Sheet, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { useState } from "react";
+import SearchButton from "../search/search-button";
 
 export default function NavigationBar() {
 
@@ -21,9 +22,7 @@ export default function NavigationBar() {
             <div className="flex space-x-4 items-center text-md">
                 <MapPin /> <span>135/8 Nguyễn Thái Học, Nha Trang, Khánh Hoà</span>
             </div>
-            <div>
-                <Search />
-            </div>
+            <SearchButton/>
         </div>
         <div className="px-[10%] w-full items-center flex justify-between py-2">
             <Link href='/'>
