@@ -7,11 +7,12 @@ import { ComboDetail } from "@/components/models/app-models";
 import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-gallery";
 import TourSchedule from "@/components/tourpage/tour-infor-page/tour-schedule";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ComboDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
   const [currentCombo, setCurrentCombo] = useState<ComboDetail>();
   const [gallery, setGallery] = useState<string[]>([]);
@@ -22,7 +23,7 @@ export default function ComboDetailPage() {
       if (result) {
         setCurrentCombo(result);
         setIsLoading(false);
-      } else return notFound();
+      } else return router.push("/404");
     };
     fetchData(slug);
   }, [slug]);

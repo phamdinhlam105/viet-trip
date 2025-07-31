@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { formatPrice } from "@/lib/formatPrice";
 import { useEffect, useState } from "react";
 import { Tour } from "@/components/models/app-models";
 import { getTourById } from "@/components/api/tour-api";
@@ -63,7 +62,7 @@ export default function TourCard({
             </div>
 
             <p>
-              🗓 Lịch trình:{" "}
+              🗓 Lịch trình:
               <span className="font-semibold line-clamp-2">{schedule}</span>
             </p>
             <p>
@@ -73,8 +72,7 @@ export default function TourCard({
           </CardContent>
           <CardFooter className="pb-4 px-2">
             <p className="text-red-500 font-semibold">
-              {" "}
-              {formatPrice(tour?.price)}{" "}
+              {parseInt(tour?tour.price:"").toLocaleString("vi-VN")}
             </p>
           </CardFooter>
         </Card>

@@ -8,10 +8,12 @@ import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-galler
 import TourSchedule from "@/components/tourpage/tour-infor-page/tour-schedule";
 import TourSidebarOffer from "@/components/tourpage/tour-infor-page/tour-side-offer";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function TourDetailPage() {
+  const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
   const [currentTour, setCurrentTour] = useState<TourDetail>({
@@ -43,7 +45,7 @@ export default function TourDetailPage() {
       if (tours) {
         setCurrentTour(tours);
         setIsLoading(false);
-      } else return notFound();
+      } else router.push("/404");
     };
 
     fetchTours(slug);

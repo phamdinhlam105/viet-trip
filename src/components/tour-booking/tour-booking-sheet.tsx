@@ -22,14 +22,23 @@ export default function TourBookingSheet({
 }: {
   openState: boolean;
 }) {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useState<Date | undefined>();
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState<[{ id: string; type: string }]>();
+  const [data, setData] = useState<{ id: string; type: string }[]>([]);
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [numberOfPerson, setNumberOfPerson] = useState(1);
   const [note, setNote] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
+  
+  const handleTimeOut = () => {
+    setIsDisabled(true);
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 10000);
+  };
+
   useEffect(() => {
     if (openState) {
       setData(getBookingItems);
@@ -45,8 +54,31 @@ export default function TourBookingSheet({
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    if (data?.length === 0) {
+      toast.error("Hãy chọn ít nhất 1 chương trình");
+      return;
+    }
+    if (!name) {
+      toast.error("Vui lòng điền tên");
+      return;
+    }
+    if (!phoneNumber) {
+      toast.error("Vui lòng điền số điện thoại liên hệ");
+      return;
+    }
+    if (!date) {
+      toast.error("Vui lòng chọn ngày khởi hành");
+      return;
+    }
+    if (date < new Date()) {
+      toast.error(
+        "Không thể chọn ngày khởi hành trong quá khứ, xin hãy chọn lại"
+      );
+      setDate(undefined);
+      return;
+    }
+
     const request: BookingRequest = {
       customerName: name,
       phoneNumber: phoneNumber,
@@ -54,17 +86,19 @@ export default function TourBookingSheet({
       numberOfPerson: numberOfPerson,
       note: note,
       email: email,
-      hotelId: data?.filter(d => d.type === 'hotel').map(d => d.id)??[],
-      tourId:data?.filter(d => d.type === 'tour').map(d => d.id)??[],
-      comboId:data?.filter(d => d.type === 'combo').map(d => d.id)??[],
+      hotelId: data?.filter((d) => d.type === "hotel").map((d) => d.id) ?? [],
+      tourId: data?.filter((d) => d.type === "tour").map((d) => d.id) ?? [],
+      comboId: data?.filter((d) => d.type === "combo").map((d) => d.id) ?? [],
     };
     const result = await newBooking(request);
     if (result) {
       toast.success("Đăng ký tư vấn thành công", {
         description: `Cảm ơn bạn đã gửi biểu mẫu đăng ký. Chúng tôi sẽ sớm liên hệ với bạn qua số điện thoại`,
         dismissible: true,
+        duration: 3000,
       });
       removeAllBookingItems();
+      handleTimeOut();
     } else toast.error("Gửi thông tin thất bại");
   };
 
@@ -75,10 +109,7 @@ export default function TourBookingSheet({
           Form đặt tour
         </SheetTitle>
       </SheetHeader>
-      <form
-        className="space-y-2 mt-4 relative py-4 px-2 border border-gray-300 rounded-lg"
-        onSubmit={handleSubmit}
-      >
+      <div className="space-y-2 mt-4 relative py-4 px-2 border border-gray-300 rounded-lg">
         <Label className="font-semibold text-xl absolute -top-4 bg-background px-2">
           Thông tin
         </Label>
@@ -96,7 +127,7 @@ export default function TourBookingSheet({
           <Label className="font-semibold">Email:</Label>
           <input
             className="w-2/3"
-            placeholder="Nhập họ tên của bạn"
+            placeholder="abc@xyz.com"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -169,16 +200,29 @@ export default function TourBookingSheet({
         </div>
 
         <div className="space-y-2">
-          <Label className="font-semibold">Những chương trình đã chọn</Label>
+          <div className="flex justify-between items-center py-4">
+            <Label className="font-semibold">Những chương trình đã chọn</Label>
+            <Button
+              variant={"outline"}
+              disabled={data.length === 0}
+              onClick={() => {
+                removeAllBookingItems();
+                setData(getBookingItems);
+              }}
+            >
+              Xoá tất cả
+            </Button>
+          </div>
+
           {data?.map((item, idx) => (
             <BookingItemCard key={idx} item={item} onRemove={onRemove} />
           ))}
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button onClick={handleSubmit} className="w-full" disabled={isDisabled}>
           Gửi yêu cầu
         </Button>
-      </form>
+      </div>
     </SheetContent>
   );
 }

@@ -1,6 +1,5 @@
 // lib/bookingStorage.ts
 
-
 export const getBookingItems = () => {
   if (typeof window === "undefined") return [];
   const data = localStorage.getItem("booking_items");
@@ -8,9 +7,11 @@ export const getBookingItems = () => {
 };
 
 export const removeBookingItem = (id: string, type: string) => {
-
   const current = getBookingItems();
-  const updated = current.filter((item: { id: string, type: string }) => !(item.id === id && item.type === type));
+  const updated = current.filter(
+    (item: { id: string; type: string }) =>
+      !(item.id === id && item.type === type)
+  );
   localStorage.setItem("booking_items", JSON.stringify(updated));
   return updated;
 };
@@ -18,7 +19,6 @@ export const removeBookingItem = (id: string, type: string) => {
 export const removeAllBookingItems = () => {
   localStorage.removeItem("booking_items");
 };
-
 
 export const addBookingItem = (newItem: { id: string; type: string }) => {
   if (typeof window === "undefined") return;

@@ -7,10 +7,11 @@ import OthersHotel from "@/components/hotel-page/hotel-detail/other-hotel";
 import { HotelDetail } from "@/components/models/app-models";
 import TourDetailGallery from "@/components/tourpage/tour-infor-page/tour-gallery";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function HotelDetailPage() {
+  const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
   const [currentHotel, setCurrentHotel] = useState<HotelDetail>({
@@ -35,7 +36,7 @@ export default function HotelDetailPage() {
       if (result) {
         setCurrentHotel(result);
         setIsLoading(false);
-      } else return notFound();
+      } else router.push("/404");
     };
     fetchData(slug);
   }, [slug]);

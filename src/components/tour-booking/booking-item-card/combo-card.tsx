@@ -6,7 +6,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { formatPrice } from "@/lib/formatPrice";
 import { getTourById } from "@/components/api/tour-api";
 import { getHotelById } from "@/components/api/hotel-api";
 import { Combo, Hotel, Tour } from "@/components/models/app-models";
@@ -97,7 +96,7 @@ export default function ComboCard({
           <CardFooter className="pb-4 px-2">
             <p className="text-red-500 font-semibold">
               {" "}
-              {formatPrice(combo?.price)}
+              {parseInt(combo?combo.price:"").toLocaleString("vi-VN")}
             </p>
           </CardFooter>
         </Card>
