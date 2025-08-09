@@ -35,7 +35,7 @@ export default function TourList() {
       if (window.innerWidth <= 768) {
         setItemsPerPage(3);
       } else {
-        setItemsPerPage(6);
+        setItemsPerPage(9);
       }
     };
     handleResize();
@@ -47,9 +47,9 @@ export default function TourList() {
   }, []);
   const sortedTourList = [...data].sort((a, b) => {
     const priceA =
-      a.price === "Liên hệ" ? null : parseInt(a.price.replace(".", ""));
+      a.price ? parseInt(a.price): null;
     const priceB =
-      b.price === "Liên hệ" ? null : parseInt(b.price.replace(".", ""));
+      b.price ? parseInt(b.price):null;
 
     if (priceA === null && priceB !== null) return -1;
     if (priceA !== null && priceB === null) return 1;
@@ -101,7 +101,7 @@ export default function TourList() {
       {isLoading ? (
         "Đang tải dữ liệu"
       ) : (
-        <div className="md:grid md:grid-cols-3 gap-4">
+        <div className="md:grid md:grid-cols-3 gap-5">
           {paginatedTours.map((item) => (
             <TourItem key={item.id} {...item} />
           ))}

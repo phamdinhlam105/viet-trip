@@ -1,6 +1,11 @@
 "use client";
 
-import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import {
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Calendar } from "@/components/ui/calendar";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
@@ -31,7 +36,7 @@ export default function TourBookingSheet({
   const [numberOfPerson, setNumberOfPerson] = useState(1);
   const [note, setNote] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  
+
   const handleTimeOut = () => {
     setIsDisabled(true);
     setTimeout(() => {
@@ -55,10 +60,6 @@ export default function TourBookingSheet({
   };
 
   const handleSubmit = async () => {
-    if (data?.length === 0) {
-      toast.error("Hãy chọn ít nhất 1 chương trình");
-      return;
-    }
     if (!name) {
       toast.error("Vui lòng điền tên");
       return;
@@ -108,13 +109,19 @@ export default function TourBookingSheet({
         <SheetTitle className="text-xl text-center uppercase">
           Form đặt tour
         </SheetTitle>
+        <SheetDescription className="text-md pt-4">
+          Hãy để lại thông tin liên lạc. Chúng tôi sẽ liên hệ với bạn sớm nhất
+          có thể
+        </SheetDescription>
       </SheetHeader>
       <div className="space-y-2 mt-4 relative py-4 px-2 border border-gray-300 rounded-lg">
         <Label className="font-semibold text-xl absolute -top-4 bg-background px-2">
           Thông tin
         </Label>
-        <div className=" flex justify-between py-2">
-          <Label className="font-semibold">Họ và tên</Label>
+        <div className=" flex justify-between py-2 space-x-2">
+          <Label className="font-semibold">
+            Họ và tên <span className="text-red-700">*</span>
+          </Label>
           <input
             className="w-2/3"
             required
@@ -123,7 +130,7 @@ export default function TourBookingSheet({
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className=" flex justify-between py-2">
+        <div className=" flex justify-between py-2 space-x-2">
           <Label className="font-semibold">Email:</Label>
           <input
             className="w-2/3"
@@ -134,10 +141,11 @@ export default function TourBookingSheet({
           />
         </div>
 
-        <div className="flex justify-between py-2">
-          <Label className="font-semibold">Số điện thoại</Label>
+        <div className="flex justify-between py-2 space-x-2">
+          <Label className="font-semibold">
+            Số điện thoại <span className="text-red-700">*</span>
+          </Label>
           <input
-            className="w-2/3"
             required
             type="tel"
             placeholder="0123 456 789"
@@ -146,8 +154,10 @@ export default function TourBookingSheet({
           />
         </div>
 
-        <div className="flex flex-col gap-3">
-          <Label className="font-semibold">Ngày khởi hành</Label>
+        <div className="flex flex-col gap-3 py-2">
+          <Label className="font-semibold">
+            Ngày khởi hành <span className="text-red-700">*</span>
+          </Label>
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <Button
@@ -176,12 +186,13 @@ export default function TourBookingSheet({
             </PopoverContent>
           </Popover>
         </div>
-        <div>
-          <Label className="font-semibold">Số người</Label>
+        <div className="flex space-x-2 justify-between py-2">
+          <Label className="font-semibold">
+            Số người <span className="text-red-700">*</span>
+          </Label>
           <input
             type="number"
             required
-            placeholder="1"
             min={1}
             value={numberOfPerson}
             onChange={(e) => setNumberOfPerson(parseInt(e.target.value))}
@@ -193,7 +204,7 @@ export default function TourBookingSheet({
           <textarea
             className="w-full"
             rows={4}
-            placeholder="Ghi chú thêm về tour hoặc khách sạn (nếu có)"
+            placeholder="Ghi chú thêm về tour, khách sạn hoặc yêu cầu tour riêng (nếu có)"
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
@@ -220,7 +231,9 @@ export default function TourBookingSheet({
         </div>
 
         <Button onClick={handleSubmit} className="w-full" disabled={isDisabled}>
-          Gửi yêu cầu
+          {isDisabled
+            ? "Vui lòng đợi 10s trước khi gửi yêu cầu tiếp"
+            : "Gửi yêu cầu"}
         </Button>
       </div>
     </SheetContent>

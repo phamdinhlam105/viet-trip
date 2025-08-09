@@ -12,13 +12,13 @@ export default function TourItem({ id, name, description, startingPlace, price, 
     name: string,
     description: string,
     startingPlace: string,
-    price: string,
+    price?: string,
     thumbnail: string,
     slug:string
 }) {
     const [open, setOpen] = useState(false);
 
-    return <div className="w-full flex flex-col justify-between bg-white rounded-lg border border-gray-200 space-y-4 pb-4 shadow-lg">
+    return <div className="w-full flex flex-col justify-between bg-white rounded-lg border border-gray-200 space-y-4 pb-4 shadow-lg md:hover:scale-105  transition-all duration-500 ease-in-out">
         <Link href={`/tour/${slug}`}>
             <div className='w-full aspect-[3/2] relative'>
                 <Image className=' rounded-lg' src={thumbnail} alt="Ảnh đại diện tour" fill unoptimized/>
@@ -36,7 +36,7 @@ export default function TourItem({ id, name, description, startingPlace, price, 
             </div>
         </Link>
         <div className='flex justify-between items-center my-2 px-4'>
-            <p className='text-[#FF0000] font-bold md:text-lg'> {formatPrice(parseInt(price).toString())}</p>
+            <p className='text-[#FF0000] font-bold md:text-lg'> {price?formatPrice(parseInt(price).toString()):"Liên hệ"}</p>
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                     <Button className='w-1/2 text-md 

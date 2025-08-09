@@ -31,7 +31,7 @@ export default function HotelSection() {
     <div>
       <SectionHeader
         title="Khách sạn Nha Trang giá tốt"
-        describe="Khách sạn Nha Trang được khách hàng quan tâm lựa chọn nhiều nhất Hè 2025"
+        describe="Khách sạn Nha Trang được khách hàng quan tâm lựa chọn nhiều nhất hiện tại"
         link="/hotel"
       />
       {isLoading ? (

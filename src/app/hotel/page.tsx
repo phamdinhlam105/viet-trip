@@ -16,7 +16,6 @@ import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function HotelPage() {
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedStar, setSelectedStar] = useState<number | null>(null);
   const [searchName, setSearchName] = useState<string | undefined>();
   const [sortBy, setSortBy] = useState<string>("");
@@ -35,27 +34,16 @@ export default function HotelPage() {
     fetchData();
   }, []);
 
-  const toggleType = (type: string) => {
-    setSelectedTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-    );
-  };
-
   const toggleStar = (star: number) => {
     setSelectedStar((prev) => (prev === star ? null : star));
   };
 
   const filteredData = data.filter((hotel) => {
-    const lowerName = hotel.name.toLowerCase();
-    const matchType =
-      selectedTypes.length === 0 ||
-      selectedTypes.some((type) => lowerName.includes(type.toLowerCase()));
-
     const matchStar = selectedStar === null || hotel.star === selectedStar;
     const matchName =
       !searchName ||
       hotel.name.toLowerCase().includes(searchName.toLowerCase());
-    return matchType && matchStar && matchName;
+    return matchStar && matchName;
   });
 
   const nameFilter = useCallback((name?: string) => {
@@ -81,9 +69,7 @@ export default function HotelPage() {
             </CollapsibleTrigger>
             <CollapsibleContent>
               <HotelSideBar
-                toggleType={toggleType}
                 toggleStar={toggleStar}
-                selectedTypes={selectedTypes}
                 selectedStar={selectedStar}
                 nameFilter={nameFilter}
               />
@@ -92,9 +78,7 @@ export default function HotelPage() {
         </div>
         <div className="hidden md:block">
           <HotelSideBar
-            toggleType={toggleType}
             toggleStar={toggleStar}
-            selectedTypes={selectedTypes}
             selectedStar={selectedStar}
             nameFilter={nameFilter}
           />

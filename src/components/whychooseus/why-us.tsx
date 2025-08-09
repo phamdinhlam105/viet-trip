@@ -1,6 +1,7 @@
-
+"use client"
 import StaticItem from "./static-item"
 import { Carousel, CarouselContent, CarouselItem} from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const WHY_CHOOSE_US = [
     {
@@ -42,7 +43,9 @@ export default function WhyChooseUs() {
                 </div>
             )}
         </div>
-        <Carousel className="w-full block md:hidden">
+        <Carousel className="w-full block md:hidden"  plugins={[
+                Autoplay({delay:3000})
+            ]}>
             <CarouselContent className="snap-x">
                 {WHY_CHOOSE_US.map(item => <CarouselItem className="space-y-4 py-5 snap-start" key={item.id}>
                      <div key={item.id} className="py-5 text-white">

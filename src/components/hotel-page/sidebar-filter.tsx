@@ -3,19 +3,14 @@
 import { Search, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const TYPES = ["Hotel", "Biệt thự", "Khu nghỉ dưỡng"];
 const STARS = [5, 4, 3, 2, 1];
 
 export default function HotelSideBar({
-  toggleType,
   toggleStar,
-  selectedTypes,
   selectedStar,
   nameFilter,
 }: {
-  toggleType: (type: string) => void;
   toggleStar: (star: number) => void;
-  selectedTypes: string[];
   selectedStar: number | null;
   nameFilter: (name?: string) => void;
 }) {
@@ -41,19 +36,7 @@ export default function HotelSideBar({
             placeholder="Tìm tên khách sạn..."
           />
         </div>
-        <div>
-          <h3 className="font-bold mb-2">Loại hình chỗ ở</h3>
-          {TYPES.map((type) => (
-            <label key={type} className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                checked={selectedTypes.includes(type)}
-                onChange={() => toggleType(type)}
-              />
-              <span>{type}</span>
-            </label>
-          ))}
-        </div>
+       
 
         <div>
           <h3 className="font-bold mb-2">Xếp hạng sao</h3>

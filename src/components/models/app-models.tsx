@@ -40,7 +40,7 @@ export type Tour = {
   slug: string;
   thumbnail: string;
   description: string;
-  price: string;
+  price?: string;
   startingPlace: string;
 };
 

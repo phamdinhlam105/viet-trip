@@ -20,17 +20,15 @@ export default function TourCard({
   onRemove: (index: string, type: string) => void;
 }) {
   const [tour, setTour] = useState<Tour>();
-  const [isLoading, setIsLoading] = useState(true);
-  const [schedule,setSchedule] = useState("");
+  const [schedule, setSchedule] = useState("");
 
   useEffect(() => {
     const fetchTour = async () => {
       const result = await getTourById(id);
       if (result) {
-        const {schedule} = result;
+        const { schedule } = result;
         setSchedule(schedule);
         setTour(result);
-        setIsLoading(false);
       }
     };
     fetchTour();
@@ -38,7 +36,7 @@ export default function TourCard({
 
   return (
     <>
-      {isLoading ? (
+      {!tour ? (
         "Đang tải"
       ) : (
         <Card className="w-full p-0">
@@ -72,7 +70,9 @@ export default function TourCard({
           </CardContent>
           <CardFooter className="pb-4 px-2">
             <p className="text-red-500 font-semibold">
-              {parseInt(tour?tour.price:"").toLocaleString("vi-VN")}
+              {tour.price
+                ? parseInt(tour.price).toLocaleString("vi-VN") + " đ"
+                : "Liên hệ"}
             </p>
           </CardFooter>
         </Card>
