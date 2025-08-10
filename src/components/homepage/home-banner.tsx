@@ -36,7 +36,8 @@ export default function HomePageBanner() {
   return (
     <div className="w-full">
       <h1 className="sr-only">
-        Viettrip Tourist - Tour du lịch chuyên nghiệp toàn quốc
+        Khám phá thế giới cùng Viettrip Tourist – Dịch vụ du lịch trọn gói, uy
+        tín, tận tâm
       </h1>
       <Carousel
         className="w-full p-0"
@@ -54,6 +55,7 @@ export default function HomePageBanner() {
             >
               <Image
                 fill
+                title="Du Lịch Lữ Hành Việt Trip"
                 src={isMobile ? item.responsiveImage : item.image}
                 alt={item.name}
                 unoptimized

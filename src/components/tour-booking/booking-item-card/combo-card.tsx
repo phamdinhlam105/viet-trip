@@ -69,12 +69,12 @@ export default function ComboCard({
               📅 Áp dụng từ:{" "}
               <span className="font-semibold">{combo?.applyDate}</span>
             </p>
-            <h3 className="font-bold py-3">📦Bao gồm:</h3>
+            <p className="font-bold py-3">📦Bao gồm:</p>
             <ul className="space-y-2">
               <li className="space-y-2">
-                <h3 className="text-md">
+                <p className="text-md">
                   🗺️ Tour: <span className="font-semibold">{tour?.name}</span>
-                </h3>
+                </p>
                 <p>
                   {" "}
                   📍 Khởi hành:{" "}
@@ -82,10 +82,10 @@ export default function ComboCard({
                 </p>
               </li>
               <li className="space-y-2">
-                <h3>
+                <p>
                   🏨 Khách sạn:{" "}
                   <span className="font-semibold">{hotel?.name}</span>
-                </h3>
+                </p>
                 <p>
                   📌 Địa chỉ:{" "}
                   <span className="font-semibold">{hotel?.address}</span>

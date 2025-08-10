@@ -25,7 +25,7 @@ export default function VideoSection() {
         <div className="flex space-x-3">
             <iframe className="md:w-2/3 md:h-122 w-full aspect-[3/2]"
                 src={VIDEO_MAIN.link}
-                title="YouTube video player"
+                title="Video Điệp Sơn Thuỷ Đạo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen>
             </iframe>
@@ -35,7 +35,7 @@ export default function VideoSection() {
                         className="w-full h-60"
                         key={item.id}
                         src={item.link}
-                        title="YouTube video player"
+                        title="Video các tour Nha Trang"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen>
                     </iframe>

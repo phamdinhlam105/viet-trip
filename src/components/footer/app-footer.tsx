@@ -1,5 +1,5 @@
 "use client";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
@@ -79,6 +79,7 @@ export default function AppFooter() {
           {COOP.map((item) => (
             <Image
               key={item.id}
+              title={item.alt}
               src={item.src}
               alt={item.alt}
               width={100}
@@ -131,7 +132,6 @@ export default function AppFooter() {
               >
                 <Instagram />
               </Link>
-              <Twitter />
               <Link href={`https://www.youtube.com/@Khuongxoaichanel`}>
                 <Youtube />
               </Link>

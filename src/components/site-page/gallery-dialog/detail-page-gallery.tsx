@@ -51,11 +51,11 @@ export default function DetailPageGallery({ gallery }: { gallery: string[] }) {
             </Button>
           </DialogTitle>
         </DialogHeader>
-        <div className="md:px-[10%] h-[70vh] overflow-auto items-center">
+        <div className="md:px-[10%] h-[70vh] overflow-auto items-center relative z-50">
           <Button
             variant="ghost"
-            className={`z-40 w-fit h-fit hover:bg-transparent ${
-              isZoomed ? "scale-140" : undefined
+            className={`z-60 w-fit h-fit hover:bg-transparent ${
+              isZoomed ? "scale-140 translate-y-[20%] translate-x-[20%]" : undefined
             }`}
             onClick={handleDoubleClick}
           >
@@ -66,7 +66,7 @@ export default function DetailPageGallery({ gallery }: { gallery: string[] }) {
               unoptimized
               width={800}
               height={600}
-              className="object-cover"
+              className="object-contain"
             />
           </Button>
         </div>

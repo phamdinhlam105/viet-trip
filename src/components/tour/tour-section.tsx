@@ -29,7 +29,7 @@ export default function TourSection() {
   }, []);
   return (
     <div>
-      <SectionHeader title="Tour Nha Trang Hot" link="/tour" />
+      <SectionHeader title="Tour Nha Trang Hot" link="/tour" more="Xem tất cả Tour"/>
       {isLoading ? (
         "Đang tải dữ liệu"
       ) : (

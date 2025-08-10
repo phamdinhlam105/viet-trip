@@ -46,7 +46,7 @@ export default function ComboSection() {
 
   return (
     <div className="space-y-4">
-      <SectionHeader title="Combo Hot" link="/combo" />
+      <SectionHeader title="Combo Hot" link="/combo" more="Xem tất cả Combo"/>
       {data.length == 0 ? (
         "Hiện tại chưa có combo"
       ) : (

@@ -33,6 +33,7 @@ export default function HotelSection() {
         title="Khách sạn Nha Trang giá tốt"
         describe="Khách sạn Nha Trang được khách hàng quan tâm lựa chọn nhiều nhất hiện tại"
         link="/hotel"
+        more="Xem tất cả Khách sạn"
       />
       {isLoading ? (
         "Đang tải dữ liệu"
