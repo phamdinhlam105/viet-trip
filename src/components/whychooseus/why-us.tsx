@@ -2,6 +2,7 @@
 import StaticItem from "./static-item";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
 
 const WHY_CHOOSE_US = [
   {
@@ -24,6 +25,18 @@ const WHY_CHOOSE_US = [
   },
 ];
 export default function WhyChooseUs() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   return (
     <div
       className="w-full px-2 md:px-[10%] space-y-2 py-8"
@@ -43,27 +56,30 @@ export default function WhyChooseUs() {
         những chuyến đi đáng nhớ, giúp bạn khám phá thế giới theo cách hoàn hảo
         nhất.
       </p>
-      <div className="hidden md:grid grid grid-cols-3 gap-6 text-white mt-4">
-        {WHY_CHOOSE_US.map((item) => (
-          <div key={item.id} className="py-5">
-            <StaticItem title={item.title} content={item.content} />
-          </div>
-        ))}
-      </div>
-      <Carousel
-        className="w-full block md:hidden"
-        plugins={[Autoplay({ delay: 3000 })]}
-      >
-        <CarouselContent className="snap-x">
+      {!isMobile ? (
+        <div className=" md:grid grid grid-cols-3 gap-6 text-white mt-4">
           {WHY_CHOOSE_US.map((item) => (
-            <CarouselItem className="space-y-4 py-5 snap-start" key={item.id}>
-              <div key={item.id} className="py-5 text-white">
-                <StaticItem title={item.title} content={item.content} />
-              </div>
-            </CarouselItem>
+            <div key={item.id} className="py-5">
+              <StaticItem title={item.title} content={item.content} />
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
+        </div>
+      ) : (
+        <Carousel
+          className="w-full"
+          plugins={[Autoplay({ delay: 3000 })]}
+        >
+          <CarouselContent className="snap-x">
+            {WHY_CHOOSE_US.map((item) => (
+              <CarouselItem className="space-y-4 py-5 snap-start" key={item.id}>
+                <div key={item.id} className="py-5 text-white">
+                  <StaticItem title={item.title} content={item.content} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      )}
     </div>
   );
 }

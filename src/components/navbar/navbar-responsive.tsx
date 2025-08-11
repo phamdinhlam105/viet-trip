@@ -51,7 +51,22 @@ export default function NavigationResponsive() {
                   <Logo />
                 </Link>
               </div>
-
+              <div className="p-2">
+                <h2>Tìm kiếm</h2>
+                <div className="flex items-center space-x-2 relative">
+                  <Input
+                    className="w-full pr-10"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <Link
+                    className="absolute z-10 right-4"
+                    href={`/tim-kiem?search=${prettySearchSlug(search)}`}
+                  >
+                    <Search />
+                  </Link>
+                </div>
+              </div>
               {NavBarStructure.map((item) => (
                 <div key={item.id} className="flex justify-end">
                   <a
@@ -62,19 +77,6 @@ export default function NavigationResponsive() {
                   </a>
                 </div>
               ))}
-              <div className="p-2">
-                <h2>Tìm kiếm</h2>
-                <div className="flex items-center space-x-2 relative">
-                  <Input
-                    className="w-full pr-10"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                  <Link className="absolute z-10 right-4" href={`/tim-kiem?search=${prettySearchSlug(search)}`}>
-                    <Search />
-                  </Link>
-                </div>
-              </div>
             </SheetContent>
           </Sheet>
         </div>
