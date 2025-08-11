@@ -1,4 +1,4 @@
-import OfferNowButton from "@/components/site-page/offer-now-button";
+import OfferNowButton from "@/components/side-page/offer-now-button";
 import { formatPrice } from "@/lib/formatPrice";
 import Link from "next/link";
 

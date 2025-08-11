@@ -1,44 +1,47 @@
-"use client";
 import { getPostBySlug } from "@/components/api/post-api";
-import { PostDetail } from "@/components/models/app-models";
-import NewsInformtion from "@/components/news-page/news-information";
-import NewsSideBar from "@/components/news-page/news-sidebar";
-import { addRecentNews } from "@/lib/recent-news";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import NewsDetailBody from "./news-body";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-export default function NewsDetailPage() {
-  const router = useRouter();
-  const params = useParams();
-  const slug = params.slug as string;
-  const [currentPost, setCurrentPost] = useState<PostDetail>({
-    id: "",
-    slug: "",
-    title: "",
-    thumbnail: "",
-    description: "",
-    updatedAt: "",
-    author: "",
-    content: "",
-  });
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const fetchData = async (slug: string) => {
-      const result = await getPostBySlug(slug);
-      if (result) {
-        setCurrentPost(result);
-        setIsLoading(false);
-      } else router.push("/404");
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const news = await getPostBySlug(slug);
+
+  if (!news) {
+    return {
+      title: "Bài viết không tồn tại",
+      description: "Bài viết này không tìm thấy trên hệ thống",
     };
-    fetchData(slug);
-  }, [slug]);
-  useEffect(() => {
-    if (currentPost.id !== "") addRecentNews(currentPost.id);
-  }, [currentPost]);
-  return (
-    <div className="md:flex md:px-[10%] px-2 pb-5 space-x-2 space-y-10 md:pt-40 pt-25">
-      {isLoading ? "Đang tải dữ liệu" : <NewsInformtion {...currentPost} />}
-      <NewsSideBar currentId={currentPost.id} />
-    </div>
-  );
+  }
+  const brandSuffix = " | Viettrip Tourist";
+  return {
+    title: news.name + brandSuffix,
+    description: news.description,
+    openGraph: {
+      title: news.name,
+      description: news.description,
+      url: `https://viettripnewsist.com/news/${news.slug}`,
+      images: news.images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: news.name,
+      description: news.description,
+      images: news.images,
+    },
+  };
+}
+export default async function NewsDetailPage({ params }: PageProps) {
+  const { slug } = await params; 
+  const news = await getPostBySlug(slug);
+
+  if (!news) {
+    notFound();
+  }
+
+  return <NewsDetailBody currentPost={news} />;
 }

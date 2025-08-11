@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Viettrip Tourist | Lữ Hành Quốc Tế & Dịch Vụ Du Lịch Chuyên Nghiệp",
+  title: "Viettrip Tourist | Dịch Vụ Du Lịch & Lữ Hành Chuyên Nghiệp",
   description:
     "Viettrip - Chuyên Tour Bình Ba, Tour Nha Trang, tour trong & ngoài nước. Dịch vụ tận tâm, giá tốt, trải nghiệm đáng nhớ.",
 };
@@ -75,8 +75,6 @@ export default function RootLayout({
           name="twitter:image"
           content="https://viettriptourist.com/android-chrome-512x512.png"
         />
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.variable}  antialiased`}>
         <ResponsiveNavbar />

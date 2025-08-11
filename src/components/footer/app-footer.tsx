@@ -44,6 +44,7 @@ const COOP = [
 export default function AppFooter() {
   const [hotTour, setHotTour] = useState<Tour[]>([]);
   const [recentNews, setRecentNews] = useState<Post[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   const fetchTour = async () => {
     const result = await getAllTour();
@@ -58,6 +59,16 @@ export default function AppFooter() {
   useEffect(() => {
     fetchTour();
     fetchPost();
+  }, []);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
   return (
@@ -75,29 +86,32 @@ export default function AppFooter() {
         <p className="md:text-lg text-sm text-center font-semibold">
           Đối Tác Chúng Tôi Bao Gồm Các Công Ty Du Lịch, Lữ Hành, Khách Sạn...
         </p>
-        <div className="grid grid-cols-6 gap-4 justify-center px-2 hidden sm:grid">
-          {COOP.map((item) => (
-            <Image
-              key={item.id}
-              title={item.alt}
-              src={item.src}
-              alt={item.alt}
-              width={100}
-              height={100}
-            />
-          ))}
-        </div>
-        <Carousel className="w-full py-5 sm:hidden">
-          <CarouselContent className="flex">
+        {!isMobile ? (
+          <div className="grid grid-cols-6 gap-4 justify-center px-2 hidden sm:grid">
             {COOP.map((item) => (
-              <CarouselItem key={item.id} className="basis-1/3 px-2">
-                <div className="relative w-full aspect-[3/2]">
-                  <Image src={item.src} alt={item.alt} fill />
-                </div>
-              </CarouselItem>
+              <Image
+                key={item.id}
+                title={item.alt}
+                src={item.src}
+                alt={item.alt}
+                width={100}
+                height={100}
+              />
             ))}
-          </CarouselContent>
-        </Carousel>
+          </div>
+        ) : (
+          <Carousel className="w-full py-5 sm:hidden">
+            <CarouselContent className="flex">
+              {COOP.map((item) => (
+                <CarouselItem key={item.id} className="basis-1/3 px-2">
+                  <div className="relative w-full aspect-[3/2]">
+                    <Image src={item.src} alt={item.alt} fill />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        )}
       </div>
       <div className="md:px-20 px-2 py-5 space-y-5">
         <div className="md:grid md:grid-cols-3 space-y-6">
@@ -121,7 +135,11 @@ export default function AppFooter() {
               <br />
               135/8 Nguyễn Thái Học, TP. Nha Trang, Khánh Hoà
               <br />
-              <span><Link className="hover:underline" href={`/policy`}>Chính sách riêng tư</Link></span>
+              <span>
+                <Link className="hover:underline" href={`/policy`}>
+                  Chính sách riêng tư
+                </Link>
+              </span>
             </p>
             <div className="flex space-x-4">
               <Link href={`https://www.facebook.com/VietTripTour`}>

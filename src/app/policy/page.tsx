@@ -1,4 +1,4 @@
-import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture";
+import TopBannerNoPicture from "@/components/side-page/top-banner-no-picture";
 
 export default function PolicyPage() {
   return (

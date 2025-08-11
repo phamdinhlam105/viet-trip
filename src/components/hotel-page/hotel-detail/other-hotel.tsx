@@ -1,6 +1,6 @@
 "use client";
 import { getAllHotel } from "@/components/api/hotel-api";
-import HotelItem from "@/components/hotel/hotel-item";
+import HotelItem from "@/components/homepage/hotel/hotel-item";
 import { Hotel } from "@/components/models/app-models";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";

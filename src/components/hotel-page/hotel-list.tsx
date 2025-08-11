@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react";
-import OfferNowButton from "../site-page/offer-now-button";
+import OfferNowButton from "../side-page/offer-now-button";
 import Image from "next/image";
 import {
   DropdownMenu,

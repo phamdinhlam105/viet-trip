@@ -1,51 +1,51 @@
 "use client";
 import { useEffect, useState } from "react";
-import SectionHeader from "../section-header/section-header";
+import { Tour } from "../../models/app-models";
+import SectionHeader from "../../section-header/section-header";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
-import HotelItem from "./hotel-item";
-import { getAllHotel } from "../api/hotel-api";
+} from "../../ui/carousel";
+import TourItem from "./tour-item";
+import { getAllTour } from "../../api/tour-api";
 import { toast } from "sonner";
-import { Hotel } from "../models/app-models";
+import IsLoading from "../../isloading/is-loading";
 
-export default function HotelSection() {
-  const [data, setData] = useState<Hotel[]>([]);
+export default function TourSection() {
+  const [data, setData] = useState<Tour[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getAllHotel();
+      const result = await getAllTour();
       if (result) {
         setData(result);
         setIsLoading(false);
-      } else toast.error("Không thể tải khách sạn vui lòng thử lại");
+      } else toast.error("Không thể tải tour vui lòng thử lại");
     };
     fetchData();
   }, []);
   return (
     <div>
       <SectionHeader
-        title="Khách sạn Nha Trang giá tốt"
-        describe="Khách sạn Nha Trang được khách hàng quan tâm lựa chọn nhiều nhất hiện tại"
-        link="/hotel"
-        more="Xem tất cả Khách sạn"
+        title="Tour Nha Trang Hot"
+        link="/tour"
+        more="Xem tất cả Tour"
       />
       {isLoading ? (
-        "Đang tải dữ liệu"
+        <IsLoading />
       ) : (
         <Carousel className=" w-full" orientation="horizontal">
-          <CarouselContent className="snap-x">
+          <CarouselContent className="snap-x items-stretch">
             {data.map((item) => (
               <CarouselItem
-                className="snap-start md:basis-[33%] py-5"
+                className="snap-start md:basis-[33%] py-5 flex"
                 key={item.id}
               >
-                <HotelItem {...item} />
+                <TourItem {...item} />
               </CarouselItem>
             ))}
           </CarouselContent>

@@ -3,8 +3,9 @@
 import { getAllHotel } from "@/components/api/hotel-api";
 import HotelList from "@/components/hotel-page/hotel-list";
 import HotelSideBar from "@/components/hotel-page/sidebar-filter";
+import IsLoading from "@/components/isloading/is-loading";
 import { Hotel } from "@/components/models/app-models";
-import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture";
+import TopBannerNoPicture from "@/components/side-page/top-banner-no-picture";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -84,7 +85,7 @@ export default function HotelPage() {
           />
         </div>
         {isLoading ? (
-          "Đang tải dữ liệu"
+          <IsLoading />
         ) : (
           <HotelList
             listdata={filteredData}

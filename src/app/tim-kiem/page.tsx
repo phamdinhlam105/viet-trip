@@ -1,17 +1,26 @@
-"use client";
-
-import TopBanner from "@/components/site-page/top-banner";
-import { Suspense } from "react";
 import SearchBody from "./search-body";
+import { Metadata } from "next";
 
-export default function SearchPage() {
+interface PageProps {
+  searchParams: Promise<{ search?: string }>;
+}
 
-  return (
-    <div className="md:pt-28 pt-20">
-      <TopBanner breadcrumbs={[{ title: "Tìm kiếm", slug: "/tim-kiem" }]} />
-        <Suspense fallback={<div>Đang tải...</div>}>
-        <SearchBody />
-      </Suspense>
-    </div>
-  );
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const params = await searchParams; 
+  const searchTerm = params.search || "";
+  const displayQuery = searchTerm.replace(/-/g, " ");
+  return {
+    title: `Kết quả tìm kiếm cho "${displayQuery}" | Viettrip Tourist`,
+    description: `Xem các bài viết liên quan đến ${displayQuery} tại Viettrip Tourist`,
+  };
+}
+
+export default async function SearchPage({ searchParams }: PageProps) {
+  const params = await searchParams; 
+  const searchTerm = params.search || "";
+  const displayQuery = searchTerm.replace(/-/g, " ");
+
+  return <SearchBody searchString={displayQuery} />;
 }

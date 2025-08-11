@@ -1,4 +1,4 @@
-import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture";
+import TopBannerNoPicture from "@/components/side-page/top-banner-no-picture";
 import TourList from "@/components/tourpage/tour-list";
 
 export default function TourPage() {

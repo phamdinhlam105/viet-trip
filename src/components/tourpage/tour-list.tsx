@@ -7,11 +7,12 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import TourItem from "../tour/tour-item";
+import TourItem from "../homepage/tour/tour-item";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Tour } from "../models/app-models";
 import { getAllTour } from "../api/tour-api";
 import { toast } from "sonner";
+import IsLoading from "../isloading/is-loading";
 
 export default function TourList() {
   const [data, setData] = useState<Tour[]>([]);
@@ -46,10 +47,8 @@ export default function TourList() {
     };
   }, []);
   const sortedTourList = [...data].sort((a, b) => {
-    const priceA =
-      a.price ? parseInt(a.price): null;
-    const priceB =
-      b.price ? parseInt(b.price):null;
+    const priceA = a.price ? parseInt(a.price) : null;
+    const priceB = b.price ? parseInt(b.price) : null;
 
     if (priceA === null && priceB !== null) return -1;
     if (priceA !== null && priceB === null) return 1;
@@ -99,7 +98,7 @@ export default function TourList() {
         </DropdownMenu>
       </div>
       {isLoading ? (
-        "Đang tải dữ liệu"
+        <IsLoading />
       ) : (
         <div className="md:grid md:grid-cols-3 gap-5">
           {paginatedTours.map((item) => (

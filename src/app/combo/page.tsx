@@ -1,7 +1,7 @@
 "use client";
-import ComboItem from "@/components/combo/combo-item";
+import ComboItem from "@/components/homepage/combo/combo-item";
 import { Combo } from "@/components/models/app-models";
-import TopBannerNoPicture from "@/components/site-page/top-banner-no-picture";
+import TopBannerNoPicture from "@/components/side-page/top-banner-no-picture";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,

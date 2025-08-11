@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import Link from "next/link";
-import { Sheet, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetTrigger } from "../../ui/sheet";
 import { useState } from "react";
-import TourBookingSheet from "../tour-booking/tour-booking-sheet";
+import TourBookingSheet from "../../tour-booking/tour-booking-sheet";
 import { addBookingItem } from "@/lib/bookingStorage";
 import { formatPrice } from "@/lib/formatPrice";
 export default function HotelItem({

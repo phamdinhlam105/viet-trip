@@ -1,9 +1,9 @@
 "use client";
 
-import { Sheet, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetTrigger } from "../../ui/sheet";
 import { useState } from "react";
-import TourBookingSheet from "../tour-booking/tour-booking-sheet";
-import { Button } from "../ui/button";
+import TourBookingSheet from "../../tour-booking/tour-booking-sheet";
+import { Button } from "../../ui/button";
 import { addBookingItem } from "@/lib/bookingStorage";
 import { formatPrice } from "@/lib/formatPrice";
 

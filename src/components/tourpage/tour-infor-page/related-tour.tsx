@@ -1,7 +1,7 @@
 "use client";
 import { getAllTour } from "@/components/api/tour-api";
 import { Tour } from "@/components/models/app-models";
-import TourItem from "@/components/tour/tour-item";
+import TourItem from "@/components/homepage/tour/tour-item";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 

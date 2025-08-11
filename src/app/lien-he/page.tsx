@@ -1,4 +1,4 @@
-import TopBanner from "@/components/site-page/top-banner";
+import TopBanner from "@/components/side-page/top-banner";
 
 export default function LienHe() {
   return (

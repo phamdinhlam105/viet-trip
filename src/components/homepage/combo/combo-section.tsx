@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Combo } from "../models/app-models";
-import SectionHeader from "../section-header/section-header";
+import { Combo } from "../../models/app-models";
+import SectionHeader from "../../section-header/section-header";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
+} from "../../ui/carousel";
 import ComboItem from "./combo-item";
 
 export default function ComboSection() {

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import DetailPageGallery from "@/components/site-page/gallery-dialog/detail-page-gallery";
+import DetailPageGallery from "@/components/side-page/gallery-dialog/detail-page-gallery";
 import { Button } from "@/components/ui/button";
 
 interface Props {

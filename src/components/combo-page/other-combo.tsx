@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ComboItem from "../combo/combo-item";
+import ComboItem from "../homepage/combo/combo-item";
 import { Combo } from "../models/app-models";
 import { getAllCombo } from "../api/combo-api";
 import { toast } from "sonner";

@@ -1,9 +1,9 @@
 "use client"
 import Image from 'next/image';
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
 import Link from 'next/link';
-import { Sheet, SheetTrigger } from '../ui/sheet';
-import TourBookingSheet from '../tour-booking/tour-booking-sheet';
+import { Sheet, SheetTrigger } from '../../ui/sheet';
+import TourBookingSheet from '../../tour-booking/tour-booking-sheet';
 import { addBookingItem } from '@/lib/bookingStorage';
 import { useState } from 'react';
 import { formatPrice } from '@/lib/formatPrice';
