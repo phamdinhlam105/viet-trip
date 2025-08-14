@@ -27,14 +27,14 @@ export default function TourSidebarOffer({
       <div className="space-y-2">
         <h2 className="text-lg font-semibold">Tags:</h2>
         <p className="text-gray-500 text-wrap">
-          <Link href="/tim-kiem?search=tour-dao">#tour_đảo</Link>,{" "}
+          <Link href="/tim-kiem?search=dao">#tour_đảo</Link>,{" "}
           <Link href="/tim-kiem?search=tour-cano">#tour_cano</Link>,{" "}
           <Link href="/tim-kiem?search=tour-nha-trang">#tour_nhatrang</Link>,{" "}
           <Link href="/tim-kiem?search=tour-binh-ba">#tour_bình_ba</Link>,{" "}
           <Link href="/tim-kiem?search=vinwonders">#vin_wonders</Link>,{" "}
           <Link href="/tim-kiem?search=tour-binh-hung">#tour_bình_hưng</Link>,{" "}
           <Link href="/tim-kiem?search=lan-bien">#tour_lặn_biển</Link>,{" "}
-           <Link href="/tim-kiem?search=tour-dong-cuu">#tour_đồng_cừu</Link>,{" "}
+          <Link href="/tim-kiem?search=tour-dong-cuu">#tour_đồng_cừu</Link>,{" "}
         </p>
       </div>
     </div>

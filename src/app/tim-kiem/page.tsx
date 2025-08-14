@@ -14,6 +14,10 @@ export async function generateMetadata({
   return {
     title: `Kết quả tìm kiếm cho "${displayQuery}" | Viettrip Tourist`,
     description: `Xem các bài viết liên quan đến ${displayQuery} tại Viettrip Tourist`,
+    robots: {
+      index:false,
+      follow: true,
+    },
   };
 }
 
